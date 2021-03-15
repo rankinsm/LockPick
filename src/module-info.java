@@ -1,0 +1,3 @@
+module LockPick {
+	requires jfxrt;
+}
