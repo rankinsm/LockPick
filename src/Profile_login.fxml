@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TextArea layoutX="199.0" layoutY="5.0" prefHeight="47.0" prefWidth="200.0" text="Profile Login">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TextArea layoutX="200.0" layoutY="41.0" prefHeight="36.0" prefWidth="200.0" text="Please enter profile PIN:&#10;" />
+            <GridPane layoutX="196.0" layoutY="95.0" prefHeight="120.0" prefWidth="207.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" text="1" />
+                  <Button mnemonicParsing="false" text="2" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" text="3" GridPane.columnIndex="2" />
+                  <Button mnemonicParsing="false" text="4" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" text="7" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" text="DEL" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" text="ENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <TextField layoutX="210.0" layoutY="231.0" prefHeight="25.0" prefWidth="178.0" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
