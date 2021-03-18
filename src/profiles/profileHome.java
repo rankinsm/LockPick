@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class profileHome extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		Parent root = FXMLLoader.load(getClass().getResource("Profile_home"));
+		Parent root = FXMLLoader.load(getClass().getResource("Profiles_home.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Profile Selection");
 		primaryStage.setScene(scene);
