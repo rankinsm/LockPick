@@ -1,4 +1,4 @@
-package profiles;
+package application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,12 +9,15 @@ import javafx.stage.Stage;
 public class profileHome extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		Parent root = FXMLLoader.load(getClass().getResource("Profile_home"));
+		FXMLLoader loader = new FXMLLoader();
+		Parent root = FXMLLoader.load(getClass().getResource("profileHome.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Profile Selection");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-	}
+		
+		profileCreateController controller = loader.getController();
+		}
 	
 	public static void main(String[] args) {
 		launch(args);
