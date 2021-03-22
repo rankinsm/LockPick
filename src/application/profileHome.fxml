@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.175" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileHomeController">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Text layoutX="645.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose a profile">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <GridPane alignment="CENTER" layoutX="303.0" layoutY="56.0" prefHeight="720.0" prefWidth="1355.0">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="button_profile0" mnemonicParsing="false" onAction="#showCreateProfile0" prefHeight="100.0" prefWidth="200.0" text="Create Profile">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button_pLogin0" disable="true" mnemonicParsing="false" onAction="#showLoginProfile0" opacity="0.0" prefHeight="100.0" prefWidth="200.0" text="Profile 0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <Button fx:id="button_profile1" mnemonicParsing="false" onAction="#showCreateProfile1" prefHeight="100.0" prefWidth="200.0" text="Create Profile" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button_profile2" mnemonicParsing="false" onAction="#showCreateProfile2" prefHeight="100.0" prefWidth="200.0" text="Create Profile" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button_profile3" mnemonicParsing="false" onAction="#showCreateProfile3" prefHeight="100.0" prefWidth="200.0" text="Create Profile" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button_profile4" alignment="CENTER" mnemonicParsing="false" onAction="#showCreateProfile4" prefHeight="100.0" prefWidth="200.0" text="Create Profile" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button_profile5" mnemonicParsing="false" onAction="#showCreateProfile5" prefHeight="100.0" prefWidth="200.0" text="Create Profile" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button_profile6" mnemonicParsing="false" onAction="#showCreateProfile6" prefHeight="100.0" prefWidth="200.0" text="Create Profile" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="button_profile7" mnemonicParsing="false" onAction="#showCreateProfile7" prefHeight="100.0" prefWidth="200.0" text="Create Profile" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>
