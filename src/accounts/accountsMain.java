@@ -1,3 +1,5 @@
+package accounts;
+
 
 
 import application.profileCreateController;
@@ -19,7 +21,7 @@ public class accountsMain extends Application{
 		primaryStage.show();
 			
 	}
-		
+/*		
 	public static void main(String[] args) {
 		MySQLCon.connect();
 		if(MySQLCon.isConnected) {
@@ -30,5 +32,5 @@ public class accountsMain extends Application{
 		}
 	}
 		
-
+*/
 }

@@ -23,12 +23,12 @@ public class profileHome extends Application{
 		
 		profileCreateController controller = loader.getController();
 		}
-	
+/*	
 	public static void main(String[] args) {
 		//launch(args);
 		//MySQLCon.connect();
 	}
-	
+*/	
 }
 
 
