@@ -1,7 +1,12 @@
 package application;
 
+import lpcon.MySQLCon;
+
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,11 +23,12 @@ public class profileHome extends Application{
 		
 		profileCreateController controller = loader.getController();
 		}
-	
+/*	
 	public static void main(String[] args) {
-		launch(args);
+		//launch(args);
+		//MySQLCon.connect();
 	}
-	
+*/	
 }
 
 

@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lpcon.MySQLCon;
+import accounts.accountsLoginController;
 
 public class profileLoginController extends profileCreateController{
 
@@ -62,19 +64,15 @@ public class profileLoginController extends profileCreateController{
     @FXML
     private PasswordField tb_pPIN;
 
-    public boolean checkPIN(PasswordField _PIN, String[] pPINs, int pNum) {
+    public boolean checkPIN(PasswordField _PIN) {
     	String inputPIN = _PIN.getText().toString();
-    	String checkPINs = pPINs[pNum];
-    	int check = 0;
-		for(int i = 0; i < inputPIN.length(); i++) {
-			if(inputPIN.charAt(i) == (checkPINs.charAt(i))) {
-				check++;
-			}
-		}
-		if(check == 6) {
-			return true;
-		}
-		return false;
+    	int profileID = profileNumber;
+    	int accountID = accounts.accountsLoginController.accountIDNum;
+    	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
+    		return true;
+    	}
+    	
+    	return false;
     }  	
 
     
@@ -85,10 +83,10 @@ public class profileLoginController extends profileCreateController{
 
     @FXML
     void btn_enter(ActionEvent event) {
-    	if(checkPIN(tb_pPIN, pPins, pNum)) {
+    	if(checkPIN(tb_pPIN)) {
     		lb_pLoginCheck.setText("Welcome");
     	}
-    	else if(!(checkPIN(tb_pPIN, pPins, pNum))){
+    	else {
     		lb_pLoginCheck.setText("PIN Incorrect");
     	}
     }

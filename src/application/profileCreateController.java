@@ -14,11 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lpcon.MySQLCon;
+import accounts.accountsLoginController;
 
 
 public class profileCreateController extends profileHomeController{
-	public static String[] pNames = new String[8];
-	public static String[] pPins = new String[8];
+
 	public static int pNum = profileNumber;
 
 	@FXML
@@ -72,18 +73,19 @@ public class profileCreateController extends profileHomeController{
     @FXML
     void createProfile(ActionEvent event) throws IOException {
     	if(tb_profilePIN.getLength() == 6 && matchCheck(tb_profilePIN, tb_profilePINcheck) && charCheck(tb_profilePIN)) {
-    		pNames[0] = tb_profileName.getText().toString();
-        	pPins[0] = tb_profilePIN.getText().toString();
-    	
+        	inputProfileInfo();
+
         	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileHome.fxml"));
         	Scene profileCreateScene = new Scene(createProfileView);
         	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        	button_profile0Create.setDisable(true);
-        	button_profile0Create.setText("Disabled");
-        	button_pLogin0change.setOpacity(100.0);
-        	button_pLogin0change.setDisable(false);
-        	button_pLogin0change.setText(pNames[0]);
-        	//renameButton(profileNumber);
+        	removeCreateButton(selectCreateButton(profileNumber));
+        	setLoginButton(selectLoginButton(profileNumber));
+/*	        	button_pCreateChange0.setDisable(true);
+	        	button_pCreateChange0.setText("Disabled");
+	        	button_pLoginChange0.setOpacity(100.0);
+	        	button_pLoginChange0.setDisable(false);
+	        	button_pLoginChange0.setText(pNames[0]);
+*/        	//renameButton(profileNumber);
         	window.setScene(profileCreateScene);
         	window.show();
     	}
@@ -102,6 +104,8 @@ public class profileCreateController extends profileHomeController{
     	}
     }
     
+    
+    
     @FXML
     void pageBack(ActionEvent event) throws IOException {
     	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileHome.fxml"));
@@ -112,48 +116,70 @@ public class profileCreateController extends profileHomeController{
     }
     
     
-    public Button selectButton(int n) {
-    	switch(n) {
+    public static void removeCreateButton(Button btn) {
+    	btn.setDisable(true);
+    	btn.setText("Disabled");
+    }
+    
+    public static void setLoginButton(Button btn) {
+    	btn.setOpacity(100.0);
+    	btn.setDisable(false);
+    	btn.setText("login");
+    }
+    
+    public static Button selectCreateButton(int profileNumber) {
+    	switch(profileNumber) {
     	case 0:
-    		return button_profile0;
+    		return button_pCreateChange0;
     	case 1:
-    		return button_profile1;
+    		return button_pCreateChange1;
     	case 2:
-    		return button_profile2;
+    		return button_pCreateChange2;
     	case 3:
-    		return button_profile3;
+    		return button_pCreateChange3;
     	case 4:
-    		return button_profile4;
+    		return button_pCreateChange4;
     	case 5:
-    		return button_profile5;
+    		return button_pCreateChange5;
     	case 6:
-    		return button_profile6;
+    		return button_pCreateChange6;
     	case 7:
-    		return button_profile7;
+    		return button_pCreateChange7;
     	}
     	return null;
     }
     
-    public void renameButton(int profileNumber) {
-    	System.out.println(profileNumber);
+    public static Button selectLoginButton(int profileNumber) {
     	switch(profileNumber) {
     	case 0:
-    		button_profile0.setDisable(true);
+    		return button_pLoginChange0;
     	case 1:
-    		button_profile1.setText("Profile2");
+    		return button_pLoginChange1;
     	case 2:
-    		button_profile2.setText("Profile3");
+    		return button_pLoginChange2;
     	case 3:
-    		button_profile3.setText("Profile4");
+    		return button_pLoginChange3;
     	case 4:
-    		button_profile4.setText("Profil5");
+    		return button_pLoginChange4;
     	case 5:
-    		button_profile5.setText("Profil6");
+    		return button_pLoginChange5;
     	case 6:
-    		button_profile6.setText("Profile7");
+    		return button_pLoginChange6;
     	case 7:
-    		button_profile7.setText("Profile8");
+    		return button_pLoginChange7;
     	}
+    	return null;
+    }
+    
+    public void inputProfileInfo() {
+    	int pID = profileNumber;
+    	int aID = accounts.accountsLoginController.accountIDNum;
+    	String name = tb_profileName.getText().toString();
+    	String pass = tb_profilePIN.getText().toString();
+    	String insert = "insert into tableprofile "
+    			+ "(accountID, profileID, profileName, profilePIN)"
+    			+ " VALUES ('"+aID+"','"+pID+"','"+name+"','"+pass+"');";
+    	lpcon.MySQLCon.sqlInsert(insert);
     }
 
 }
