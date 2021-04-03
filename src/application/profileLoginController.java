@@ -18,6 +18,7 @@ import lpcon.MySQLCon;
 import accounts.accountsLoginController;
 
 public class profileLoginController extends profileCreateController{
+	private String txtPIN;
 
     @FXML
     private Button btn_plBack;
@@ -66,8 +67,11 @@ public class profileLoginController extends profileCreateController{
 
     public boolean checkPIN(PasswordField _PIN) {
     	String inputPIN = _PIN.getText().toString();
-    	int profileID = profileNumber;
+    	int profileID = application.profileSelectionController.profileID;
     	int accountID = accounts.accountsLoginController.accountIDNum;
+    	System.out.println(accountID);
+    	System.out.println(profileID);
+    	System.out.println(inputPIN);
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
     	}
@@ -91,59 +95,85 @@ public class profileLoginController extends profileCreateController{
     	}
     }
 
-    @FXML
-    void btn_input7(ActionEvent event) {
-
-    }
 
     @FXML
     void btn_input0(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "0";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input1(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "1";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input2(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "2";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input3(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "3";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input4(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "4";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input5(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "5";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input6(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "6";
+    	tb_pPIN.setText(txtPIN);
+    }
+    
+    @FXML
+    void btn_input7(ActionEvent event) {
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "7";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input8(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "8";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input9(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "9";
+    	tb_pPIN.setText(txtPIN);
     }
     
     @FXML
     void pageBackHome(ActionEvent event) throws IOException {
+    	Parent loginProfileView = FXMLLoader.load(getClass().getResource("profileSelection.fxml"));
+    	Scene loginProfileScene = new Scene(loginProfileView);
     	
+    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(loginProfileScene);
+    	window.show();
     }
 
 }

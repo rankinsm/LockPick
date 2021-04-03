@@ -14,12 +14,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lpcon.MySQLCon;
+import java.util.concurrent.*;
+
 
 import application.*;
 
-public class accountsLoginController {
+public class accountsLoginController extends application.profileSelectionController {
 	public static int accountIDNum = -1;
 	public static String[] localProfiles = new String[8];
+	public static boolean accountLoggedIn = false;
 	
     @FXML
     private Button btn_accountCreateBack;
@@ -47,7 +50,7 @@ public class accountsLoginController {
     }
 
     @FXML
-    void showProfilles(ActionEvent event) throws IOException {
+    void showProfiles(ActionEvent event) throws IOException {
 		txt_accountLoginError.setText("");
 		String email = tb_loginEmail.getText().toString();
     	if(loginVerified()) {
@@ -56,12 +59,11 @@ public class accountsLoginController {
         	for(int i = 0; i < 8; i++) {
         		System.out.println(localProfiles[i]);
         	}
-    		application.profileHomeController.setButtons();
-        	Parent profileHomeView = FXMLLoader.load(getClass().getResource("../application/profileHome.fxml"));
-        	Scene profileHomeScene = new Scene(profileHomeView);
         	
+        	Parent profileWelcomeView = FXMLLoader.load(getClass().getResource("../application/profileSelection.fxml"));
+        	Scene profileWelcomeScene = new Scene(profileWelcomeView);
         	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        	window.setScene(profileHomeScene);
+        	window.setScene(profileWelcomeScene);
         	window.show(); 
     	}
     	else {
@@ -82,6 +84,14 @@ public class accountsLoginController {
     
     public static String[] loadProfiles() {
     	return lpcon.MySQLCon.accountProfiles(accountIDNum);
+    }
+    
+    public static String[] nullProfiles() {
+    	String[] profilesNull = new String[8];
+    	for(int i = 0; i < 8; i++) {
+    		profilesNull[i] = null;
+    	}
+    	return profilesNull;
     }
     
 }
