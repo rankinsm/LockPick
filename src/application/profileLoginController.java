@@ -1,5 +1,4 @@
 
-
 package application;
 
 import java.io.IOException;
@@ -69,9 +68,6 @@ public class profileLoginController extends profileCreateController{
     	String inputPIN = _PIN.getText().toString();
     	int profileID = application.profileSelectionController.profileID;
     	int accountID = accounts.accountsLoginController.accountIDNum;
-    	System.out.println(accountID);
-    	System.out.println(profileID);
-    	System.out.println(inputPIN);
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
     	}
@@ -86,10 +82,14 @@ public class profileLoginController extends profileCreateController{
     }
 
     @FXML
-    void btn_enter(ActionEvent event) {
+    void btn_enter(ActionEvent event) throws IOException {
     	if(checkPIN(tb_pPIN)) {
-    		lb_pLoginCheck.setText("Welcome");
-    	}
+        	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../logins/loginsHome.fxml"));
+        	Scene loginsHomeScene = new Scene(loginsHomeView);
+        	
+        	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        	window.setScene(loginsHomeScene);
+        	window.show();    	}
     	else {
     		lb_pLoginCheck.setText("PIN Incorrect");
     	}
@@ -168,11 +168,11 @@ public class profileLoginController extends profileCreateController{
     
     @FXML
     void pageBackHome(ActionEvent event) throws IOException {
-    	Parent loginProfileView = FXMLLoader.load(getClass().getResource("profileSelection.fxml"));
-    	Scene loginProfileScene = new Scene(loginProfileView);
+    	Parent selectProfileView = FXMLLoader.load(getClass().getResource("profileSelection.fxml"));
+    	Scene selectProfileScene = new Scene(selectProfileView);
     	
     	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	window.setScene(loginProfileScene);
+    	window.setScene(selectProfileScene);
     	window.show();
     }
 

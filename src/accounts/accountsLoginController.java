@@ -56,9 +56,6 @@ public class accountsLoginController extends application.profileSelectionControl
     	if(loginVerified()) {
     		accountIDNum = lpcon.MySQLCon.accountID(email);
     		localProfiles = loadProfiles();
-        	for(int i = 0; i < 8; i++) {
-        		System.out.println(localProfiles[i]);
-        	}
         	
         	Parent profileWelcomeView = FXMLLoader.load(getClass().getResource("../application/profileSelection.fxml"));
         	Scene profileWelcomeScene = new Scene(profileWelcomeView);
