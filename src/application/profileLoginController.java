@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logins.loginsAddController;
 import lpcon.MySQLCon;
 import accounts.accountsLoginController;
 
@@ -84,12 +85,14 @@ public class profileLoginController extends profileCreateController{
     @FXML
     void btn_enter(ActionEvent event) throws IOException {
     	if(checkPIN(tb_pPIN)) {
-        	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../logins/loginsHome.fxml"));
+    		Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../logins/loginsHome.fxml"));
         	Scene loginsHomeScene = new Scene(loginsHomeView);
         	
         	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         	window.setScene(loginsHomeScene);
-        	window.show();    	}
+        	window.show(); 
+
+        	}
     	else {
     		lb_pLoginCheck.setText("PIN Incorrect");
     	}
@@ -176,4 +179,5 @@ public class profileLoginController extends profileCreateController{
     	window.show();
     }
 
+    
 }

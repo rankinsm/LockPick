@@ -147,4 +147,30 @@ public class MySQLCon{
 		}
 		return pID;
 	}
+	
+	public static String[] accountOrderedProfiles(int ID) {
+		String[] names = new String[8];
+		int n = 0;
+		for(int i = 0; i < 8; i++) {
+			names[i] = null;
+		}
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");  
+			Connection con;
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lockpick","root","rootPass");
+			Statement stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery("select profileName, profileID FROM tableprofile WHERE accountID = '"+ID+"'");
+			while(rs.next()) {
+				n = rs.getInt(2);
+				names[n] = rs.getString(1);
+				
+			}
+
+		} 
+		catch (Exception e) {
+			System.out.println(e);
+		}  
+
+		return names;
+	}
 }  

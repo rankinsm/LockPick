@@ -146,42 +146,42 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Text fx:id="txt_name0" strokeType="OUTSIDE" strokeWidth="0.0" text="x">
+                  <Text fx:id="txt_name0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name1" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="1">
+                  <Text fx:id="txt_name1" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name2" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="2">
+                  <Text fx:id="txt_name2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name3" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="3">
+                  <Text fx:id="txt_name3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name4" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="4">
+                  <Text fx:id="txt_name4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name5" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="5">
+                  <Text fx:id="txt_name5" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name6" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="6">
+                  <Text fx:id="txt_name6" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="6">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txt_name7" strokeType="OUTSIDE" strokeWidth="0.0" text="x" GridPane.rowIndex="7">
+                  <Text fx:id="txt_name7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7">
                      <font>
                         <Font size="18.0" />
                      </font>

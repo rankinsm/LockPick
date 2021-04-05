@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class profileSelectionController {
 	public String[] unloadedProfiles = new String[8];
 	public String[] loadedProfiles = new String[8];
-	public int numberOfProfiles = 0;
+	public static int numberOfProfiles = 0;
 	public String pNameCheck;
 	public static int profileID;
 	
