@@ -10,6 +10,7 @@ import java.util.Scanner ;
  * @author williamss12
  * @version 1.0.0 2021-04-05 Initial implementation
  *
+ *
  */
 public class CreateLoginInfo extends LoginInfo
     {
