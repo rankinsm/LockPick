@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.175" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileSelectionController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Text fx:id="txt_profileSelection" layoutX="613.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Selection">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Text>
+            <StackPane prefHeight="192.0" prefWidth="221.0">
+               <children>
+                  <Button fx:id="btn_logOut" mnemonicParsing="false" onAction="#showAccountHome" prefHeight="75.0" prefWidth="150.0" text="Log Out">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_back" disable="true" layoutX="45.0" layoutY="68.0" mnemonicParsing="false" onAction="#showProfileSelection" opacity="0.0" prefHeight="75.0" prefWidth="150.0" text="Back">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </StackPane>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <StackPane prefHeight="888.0" prefWidth="1915.0">
+               <children>
+                  <GridPane maxHeight="750.0" maxWidth="1800.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btn_profile0" disable="true" mnemonicParsing="false" onAction="#showLoginProfile0" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile1" disable="true" layoutX="135.0" layoutY="159.0" mnemonicParsing="false" onAction="#showLoginProfile1" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile2" disable="true" layoutX="135.0" layoutY="159.0" mnemonicParsing="false" onAction="#showLoginProfile2" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.columnIndex="2">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile3" disable="true" layoutX="1035.0" layoutY="159.0" mnemonicParsing="false" onAction="#showLoginProfile3" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.columnIndex="3">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile4" disable="true" layoutX="1485.0" layoutY="159.0" mnemonicParsing="false" onAction="#showLoginProfile4" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile5" disable="true" layoutX="135.0" layoutY="534.0" mnemonicParsing="false" onAction="#showLoginProfile5" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile6" disable="true" layoutX="585.0" layoutY="534.0" mnemonicParsing="false" onAction="#showLoginProfile6" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_profile7" disable="true" layoutX="1035.0" layoutY="534.0" mnemonicParsing="false" onAction="#showLoginProfile7" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+                  <GridPane maxHeight="100.0" prefHeight="267.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="btn_createProfile" mnemonicParsing="false" onAction="#showCreateProfile" prefHeight="75.0" prefWidth="226.0" text="Create Profile">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_selectProfile" mnemonicParsing="false" onAction="#showSelectProfile" prefHeight="75.0" prefWidth="225.0" text="Select Profile" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </StackPane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
