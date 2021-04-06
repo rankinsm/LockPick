@@ -58,6 +58,9 @@ public class profileSelectionController {
     @FXML
     private Button btn_profile7;
     
+    @FXML
+    private Text txt_ErrorProfiles;
+    
 
     @FXML
     void showAccountHome(ActionEvent event) throws IOException {
@@ -84,12 +87,19 @@ public class profileSelectionController {
 
     @FXML
     void showCreateProfile(ActionEvent event) throws IOException {
-    	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileCreate.fxml"));
-    	Scene createProfileScene = new Scene(createProfileView);
+    	getProfiles();
+    	if(numberOfProfiles <= 8) {
+    		Parent createProfileView = FXMLLoader.load(getClass().getResource("profileCreate.fxml"));
+    		Scene createProfileScene = new Scene(createProfileView);
     	
-    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	window.setScene(createProfileScene);
-    	window.show();
+    		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    		window.setScene(createProfileScene);
+    		window.show();
+    	}
+    	
+    	else {
+    		txt_ErrorProfiles.setText("Error - Maximum number of profiles reached");
+    	}
     }
 
     @FXML
@@ -127,9 +137,10 @@ public class profileSelectionController {
     			showButton(btn_profile7, loadedProfiles[i]);
     			break;
     		}
-    			
     	}
     }
+    
+ 
     
     @FXML
     void showLoginProfile0(ActionEvent event) throws IOException {
@@ -238,7 +249,7 @@ public class profileSelectionController {
     void getProfiles() {
     	numberOfProfiles = 0;
     	for(int i = 0; i < 8; i++) {
-    		unloadedProfiles[i] = accounts.accountsLoginController.localProfiles[i];
+    		unloadedProfiles[i] = lpcon.MySQLCon.accountProfiles(accounts.accountsLoginController.accountIDNum)[i];
     		if(unloadedProfiles[i] != null) {
     			numberOfProfiles++;
     		}

@@ -79,18 +79,19 @@
          <children>
             <TableView layoutX="89.0" layoutY="29.0" prefHeight="886.4" prefWidth="1918.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="277.3333312869072" text="Name" />
-                <TableColumn minWidth="0.0" prefWidth="398.6666564941406" text="Username / Email" />
-                  <TableColumn minWidth="9.5999755859375" prefWidth="226.933349609375" text="Password" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Is Shared" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
-                  <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                <TableColumn fx:id="clm_name" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="Name" />
+                <TableColumn fx:id="clm_user" minWidth="0.0" prefWidth="185.60011291503906" text="Username / Email" />
+                  <TableColumn fx:id="clm_pass" minWidth="0.0" prefWidth="331.9999694824219" text="Password" />
+                  <TableColumn fx:id="clm_shared" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Is Shared" />
+                  <TableColumn fx:id="clm_profile0" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile1" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile2" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile3" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile4" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile5" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile6" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_profile7" maxWidth="280.0" minWidth="100.0" prefWidth="100.0" text="Profile" />
+                  <TableColumn fx:id="clm_button" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

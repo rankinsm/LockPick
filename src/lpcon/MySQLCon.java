@@ -28,7 +28,7 @@ public class MySQLCon{
 			Statement stmt = con.createStatement(); 
   
 			stmt.executeUpdate(accountInfo);
-			System.out.println("Insert Successful");
+			System.out.println("Query Successful");
 			con.close();  
 		}
 		catch(Exception e){ 

@@ -18,6 +18,8 @@ import javafx.stage.Stage;
 
 public class loginsHomeController implements Initializable {
 
+	public static String[] profileNames = new String[8];
+	
     @FXML
     private Button btnBack;
 
@@ -73,6 +75,9 @@ public class loginsHomeController implements Initializable {
     private TableColumn<?, ?> clm_profile7;
     
     @FXML
+    private TableColumn<?, ?> clm_button;
+    
+    @FXML
     void showAccountHome(ActionEvent event) throws IOException {
     	Parent accountsHomeView = FXMLLoader.load(getClass().getResource("../accounts/accountsHome.fxml"));
     	Scene accountsHomeScene = new Scene(accountsHomeView);
@@ -110,8 +115,13 @@ public class loginsHomeController implements Initializable {
     }
 
     @FXML
-    void showProfileEdit(ActionEvent event) {
-
+    void showProfileEdit(ActionEvent event) throws IOException {
+    	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../application/profileEdit.fxml"));
+    	Scene loginsHomeScene = new Scene(loginsHomeView);
+    	
+    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(loginsHomeScene);
+    	window.show(); 
     }
 
     @FXML
@@ -124,10 +134,28 @@ public class loginsHomeController implements Initializable {
     	window.show();
     }
 
+    private void setNames() {
+    	for(int i = 0; i < 8; i++) {
+    		if(lpcon.MySQLCon.accountOrderedProfiles(accounts.accountsLoginController.accountIDNum)[i] != null) {
+    			profileNames[i] = lpcon.MySQLCon.accountOrderedProfiles(accounts.accountsLoginController.accountIDNum)[i];
+    		}
+    		else {
+    			profileNames[i] = "No Profile";
+    		}
+    	}
+    }
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-//		clm_profile0.setText("Zero");
-		
+		setNames();
+		clm_profile0.setText(profileNames[0]);
+		clm_profile1.setText(profileNames[1]);
+		clm_profile2.setText(profileNames[2]);
+		clm_profile3.setText(profileNames[3]);
+		clm_profile4.setText(profileNames[4]);
+		clm_profile5.setText(profileNames[5]);
+		clm_profile6.setText(profileNames[6]);
+		clm_profile7.setText(profileNames[7]);
 	}
 
 }

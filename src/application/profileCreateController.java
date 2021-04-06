@@ -134,9 +134,10 @@ public class profileCreateController extends profileSelectionController{
     }
     
     public int getNewID() {
+    	String[] localP = lpcon.MySQLCon.accountOrderedProfiles(accounts.accountsLoginController.accountIDNum);
     	int newID = -1;
     	for(int i = 0; i < 8; i++) {
-    		if(accounts.accountsLoginController.localProfiles[i] == null) {
+    		if(localP[i] == null) {
     			newID = i;
     			return newID;
     		}
