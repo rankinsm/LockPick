@@ -10,50 +10,41 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.175" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileSelectionController">
+<SplitPane dividerPositions="0.175" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accounts.accountsProfileDel">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Text fx:id="txt_profileSelection" layoutX="613.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Selection">
+            <Text layoutX="735.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Deletion">
                <font>
-                  <Font size="96.0" />
+                  <Font size="72.0" />
                </font>
             </Text>
-            <StackPane prefHeight="192.0" prefWidth="221.0">
-               <children>
-                  <Button fx:id="btn_logOut" mnemonicParsing="false" onAction="#showAccountHome" prefHeight="75.0" prefWidth="150.0" text="Log Out">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btn_back" disable="true" layoutX="45.0" layoutY="68.0" mnemonicParsing="false" onAction="#showProfileSelection" opacity="0.0" prefHeight="75.0" prefWidth="150.0" text="Back">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-               </children>
-            </StackPane>
-            <Button fx:id="btn_editAccount" layoutX="1682.0" layoutY="63.0" mnemonicParsing="false" onAction="#showEditAccount" prefHeight="75.0" prefWidth="200.0" text="Edit Account">
+            <Button fx:id="btn_back" layoutX="48.0" layoutY="57.0" mnemonicParsing="false" onAction="#showAccountEdit" prefHeight="75.0" prefWidth="150.0" text="Back">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
+            <Text fx:id="txt_ErrorProfiles" layoutY="-52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning selecting a profile will delete it. This cannot be undone." wrappingWidth="777.3366737365723" x="600.0" y="150.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
             <StackPane prefHeight="888.0" prefWidth="1915.0">
                <children>
                   <GridPane maxHeight="750.0" maxWidth="1800.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
                         <Button fx:id="btn_profile0" disable="true" mnemonicParsing="false" onAction="#showLoginProfile0" opacity="0.0" prefHeight="75.0" prefWidth="200.0" text="Empty" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
@@ -100,18 +91,12 @@
                   <GridPane maxHeight="100.0" prefHeight="267.0">
                      <columnConstraints>
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button fx:id="btn_createProfile" mnemonicParsing="false" onAction="#showCreateProfile" prefHeight="75.0" prefWidth="226.0" text="Create Profile">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btn_selectProfile" mnemonicParsing="false" onAction="#showSelectProfile" prefHeight="75.0" prefWidth="225.0" text="Select Profile" GridPane.columnIndex="1">
+                        <Button fx:id="btn_selectProfile" mnemonicParsing="false" onAction="#showSelectProfile" prefHeight="75.0" prefWidth="225.0" text="Select Profile">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -120,11 +105,7 @@
                   </GridPane>
                </children>
             </StackPane>
-            <Text fx:id="txt_ErrorProfiles" layoutX="315.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="294.13672256469727">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
   </items>
 </SplitPane>

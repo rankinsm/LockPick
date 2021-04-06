@@ -23,6 +23,7 @@ public class accountsLoginController extends application.profileSelectionControl
 	public static int accountIDNum = -1;
 	public static String[] localProfiles = new String[8];
 	public static boolean accountLoggedIn = false;
+	public static String accountEmail;
 	
     @FXML
     private Button btn_accountCreateBack;
@@ -56,6 +57,7 @@ public class accountsLoginController extends application.profileSelectionControl
     	if(loginVerified()) {
     		accountIDNum = lpcon.MySQLCon.accountID(email);
     		localProfiles = loadProfiles();
+    		accountEmail = tb_loginEmail.getText().toString();
         	
         	Parent profileWelcomeView = FXMLLoader.load(getClass().getResource("../application/profileSelection.fxml"));
         	Scene profileWelcomeScene = new Scene(profileWelcomeView);

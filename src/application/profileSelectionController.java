@@ -61,6 +61,9 @@ public class profileSelectionController {
     @FXML
     private Text txt_ErrorProfiles;
     
+    @FXML
+    private Button btn_editAccount;
+    
 
     @FXML
     void showAccountHome(ActionEvent event) throws IOException {
@@ -100,6 +103,16 @@ public class profileSelectionController {
     	else {
     		txt_ErrorProfiles.setText("Error - Maximum number of profiles reached");
     	}
+    }
+    
+    @FXML
+    void showEditAccount(ActionEvent event) throws IOException {
+		Parent createProfileView = FXMLLoader.load(getClass().getResource("../accounts/accountsEdit.fxml"));
+		Scene createProfileScene = new Scene(createProfileView);
+	
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(createProfileScene);
+		window.show();
     }
 
     @FXML

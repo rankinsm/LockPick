@@ -93,9 +93,9 @@ public class profileDeleteController implements Initializable{
     	String deleteLogins = "DELETE FROM tablelogins " 
     			+ "WHERE accountID ='"+accountID+"' AND profileID ='"+profileID+"';";
     	lpcon.MySQLCon.sqlInsert(deleteLogins);
-    	String delteProfile = "DELETE FROM tableprofile "
+    	String deleteProfile = "DELETE FROM tableprofile "
     			+ "WHERE accountID ='"+accountID+"' AND profileID ='"+profileID+"';";
-    	lpcon.MySQLCon.sqlInsert(delteProfile);
+    	lpcon.MySQLCon.sqlInsert(deleteProfile);
     }
     
 	@Override
