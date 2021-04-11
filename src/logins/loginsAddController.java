@@ -21,7 +21,7 @@ public class loginsAddController implements Initializable{
 	int prof5;
 	int prof6;
 	int prof7;
-	String[] names = new String[8];
+	static String[] names = new String[8];
 	String[] unloadedNames = new String[8];
 
 	int profID = application.profileSelectionController.profileID;
