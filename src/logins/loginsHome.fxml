@@ -74,10 +74,15 @@
                   </Button>
                </children>
             </GridPane>
+            <Text layoutX="1197.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 = Profile Is Shared  0 = Profile is not Shared">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <TableView layoutX="89.0" layoutY="29.0" prefHeight="886.4" prefWidth="1918.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="table_logins" layoutX="89.0" layoutY="29.0" prefHeight="886.4" prefWidth="1918.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
                 <TableColumn fx:id="clm_name" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="Name" />
                 <TableColumn fx:id="clm_user" minWidth="0.0" prefWidth="185.60011291503906" text="Username / Email" />
