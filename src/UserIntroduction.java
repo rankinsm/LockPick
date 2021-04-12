@@ -1,13 +1,15 @@
 import java.util.Scanner ;
+
 /**
  * @author williamss12
  * @version 1.0.0 2021-03-07 Initial implementation
  *          1.1.0 added emailIsValid, passwordIsValid, and pinIsValid
  */
-public class UserIntroduction
+public class UserIntroduction 
     {
-    public static void main (String args[]) {
+    public static void main (String args[])  {
     Scanner s = new Scanner(System.in);
+    AccountInfo account;
     System.out.println("Welcome to LockPick. Please enter your email.");
     String email = s.nextLine();
     while (!emailIsValid(email)) {
@@ -28,6 +30,7 @@ public class UserIntroduction
         System.out.println("Invalid PIN. Please enter a valid PIN number");
         PIN = s.nextLine();
     }
+    account = new AccountInfo (email, password, username, PIN);
     System.out.println ("Your account has been set up, Thank you for using LockPick.");
     s.close();
     
