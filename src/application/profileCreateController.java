@@ -14,12 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lpcon.MySQLCon;
+import accounts.accountsLoginController;
 
 
-public class profileCreateController extends profileHomeController{
-	public static String[] pNames = new String[8];
-	public static String[] pPins = new String[8];
-	public static int pNum = profileNumber;
+public class profileCreateController extends profileSelectionController{
+	public int newProfileID = getNewID();
 
 	@FXML
 	private Button btn_pcBack;
@@ -71,19 +71,14 @@ public class profileCreateController extends profileHomeController{
     
     @FXML
     void createProfile(ActionEvent event) throws IOException {
-    	if(tb_profilePIN.getLength() == 6 && matchCheck(tb_profilePIN, tb_profilePINcheck) && charCheck(tb_profilePIN)) {
-    		pNames[0] = tb_profileName.getText().toString();
-        	pPins[0] = tb_profilePIN.getText().toString();
-    	
-        	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileHome.fxml"));
+    	if(tb_profilePIN.getLength() == 6 && matchCheck(tb_profilePIN, tb_profilePINcheck) && charCheck(tb_profilePIN) && newProfileID != -1) {
+        	inputProfileInfo(newProfileID);
+        	accounts.accountsLoginController.localProfiles = accounts.accountsLoginController.loadProfiles();
+
+        	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileSelection.fxml"));
         	Scene profileCreateScene = new Scene(createProfileView);
         	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        	button_profile0Create.setDisable(true);
-        	button_profile0Create.setText("Disabled");
-        	button_pLogin0change.setOpacity(100.0);
-        	button_pLogin0change.setDisable(false);
-        	button_pLogin0change.setText(pNames[0]);
-        	//renameButton(profileNumber);
+
         	window.setScene(profileCreateScene);
         	window.show();
     	}
@@ -102,9 +97,11 @@ public class profileCreateController extends profileHomeController{
     	}
     }
     
+    
+    
     @FXML
     void pageBack(ActionEvent event) throws IOException {
-    	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileHome.fxml"));
+    	Parent createProfileView = FXMLLoader.load(getClass().getResource("profileSelection.fxml"));
     	Scene profileCreateScene = new Scene(createProfileView);
     	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
     	window.setScene(profileCreateScene);
@@ -112,48 +109,40 @@ public class profileCreateController extends profileHomeController{
     }
     
     
-    public Button selectButton(int n) {
-    	switch(n) {
-    	case 0:
-    		return button_profile0;
-    	case 1:
-    		return button_profile1;
-    	case 2:
-    		return button_profile2;
-    	case 3:
-    		return button_profile3;
-    	case 4:
-    		return button_profile4;
-    	case 5:
-    		return button_profile5;
-    	case 6:
-    		return button_profile6;
-    	case 7:
-    		return button_profile7;
-    	}
-    	return null;
+    private static void removeCreateButton(Button btn) {
+    	btn.setDisable(true);
+    	btn.setText("Disabled");
     }
     
-    public void renameButton(int profileNumber) {
-    	System.out.println(profileNumber);
-    	switch(profileNumber) {
-    	case 0:
-    		button_profile0.setDisable(true);
-    	case 1:
-    		button_profile1.setText("Profile2");
-    	case 2:
-    		button_profile2.setText("Profile3");
-    	case 3:
-    		button_profile3.setText("Profile4");
-    	case 4:
-    		button_profile4.setText("Profil5");
-    	case 5:
-    		button_profile5.setText("Profil6");
-    	case 6:
-    		button_profile6.setText("Profile7");
-    	case 7:
-    		button_profile7.setText("Profile8");
+    private static void setLoginButton(Button btn) {
+    	btn.setOpacity(100.0);
+    	btn.setDisable(false);
+    	btn.setText("login");
+    }
+    
+ 
+    
+    public void inputProfileInfo(int newProfileID) {
+    	int pID = newProfileID;
+    	int aID = accounts.accountsLoginController.accountIDNum;
+    	String name = tb_profileName.getText().toString();
+    	String pass = tb_profilePIN.getText().toString();
+    	String insert = "insert into tableprofile "
+    			+ "(accountID, profileID, profileName, profilePIN)"
+    			+ " VALUES ('"+aID+"','"+pID+"','"+name+"','"+pass+"');";
+    	lpcon.MySQLCon.sqlInsert(insert);
+    }
+    
+    public int getNewID() {
+    	String[] localP = lpcon.MySQLCon.accountOrderedProfiles(accounts.accountsLoginController.accountIDNum);
+    	int newID = -1;
+    	for(int i = 0; i < 8; i++) {
+    		if(localP[i] == null) {
+    			newID = i;
+    			return newID;
+    		}
     	}
+    	return newID;
     }
 
 }

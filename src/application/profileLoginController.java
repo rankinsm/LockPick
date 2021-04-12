@@ -1,5 +1,4 @@
 
-
 package application;
 
 import java.io.IOException;
@@ -14,9 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logins.loginsAddController;
+import lpcon.MySQLCon;
+import accounts.accountsLoginController;
 
 public class profileLoginController extends profileCreateController{
+	private String txtPIN;
 
+	//Form Elements
     @FXML
     private Button btn_plBack;
 	
@@ -62,19 +66,16 @@ public class profileLoginController extends profileCreateController{
     @FXML
     private PasswordField tb_pPIN;
 
-    public boolean checkPIN(PasswordField _PIN, String[] pPINs, int pNum) {
+    //Verifies PIN with DB
+    public boolean checkPIN(PasswordField _PIN) {
     	String inputPIN = _PIN.getText().toString();
-    	String checkPINs = pPINs[pNum];
-    	int check = 0;
-		for(int i = 0; i < inputPIN.length(); i++) {
-			if(inputPIN.charAt(i) == (checkPINs.charAt(i))) {
-				check++;
-			}
-		}
-		if(check == 6) {
-			return true;
-		}
-		return false;
+    	int profileID = application.profileSelectionController.profileID;
+    	int accountID = accounts.accountsLoginController.accountIDNum;
+    	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
+    		return true;
+    	}
+    	
+    	return false;
     }  	
 
     
@@ -84,68 +85,101 @@ public class profileLoginController extends profileCreateController{
     }
 
     @FXML
-    void btn_enter(ActionEvent event) {
-    	if(checkPIN(tb_pPIN, pPins, pNum)) {
-    		lb_pLoginCheck.setText("Welcome");
-    	}
-    	else if(!(checkPIN(tb_pPIN, pPins, pNum))){
+    void btn_enter(ActionEvent event) throws IOException {
+    	if(checkPIN(tb_pPIN)) {
+    		Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../logins/loginsHome.fxml"));
+        	Scene loginsHomeScene = new Scene(loginsHomeView);
+        	
+        	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        	window.setScene(loginsHomeScene);
+        	window.show(); 
+
+        	}
+    	else {
     		lb_pLoginCheck.setText("PIN Incorrect");
     	}
     }
 
-    @FXML
-    void btn_input7(ActionEvent event) {
-
-    }
 
     @FXML
     void btn_input0(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "0";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input1(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "1";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input2(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "2";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input3(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "3";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input4(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "4";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input5(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "5";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input6(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "6";
+    	tb_pPIN.setText(txtPIN);
+    }
+    
+    @FXML
+    void btn_input7(ActionEvent event) {
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "7";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input8(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "8";
+    	tb_pPIN.setText(txtPIN);
     }
 
     @FXML
     void btn_input9(ActionEvent event) {
-
+    	txtPIN = tb_pPIN.getText();
+    	txtPIN = txtPIN + "9";
+    	tb_pPIN.setText(txtPIN);
     }
     
     @FXML
     void pageBackHome(ActionEvent event) throws IOException {
+    	Parent selectProfileView = FXMLLoader.load(getClass().getResource("profileSelection.fxml"));
+    	Scene selectProfileScene = new Scene(selectProfileView);
     	
+    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(selectProfileScene);
+    	window.show();
     }
 
+    
 }
