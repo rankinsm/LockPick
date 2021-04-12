@@ -21,6 +21,7 @@ public class profileDeleteController implements Initializable{
 	
 	String name = application.profileEditController.pName;
 
+	//Form Elements
     @FXML
     private Button btn_back;
 
@@ -36,6 +37,7 @@ public class profileDeleteController implements Initializable{
     @FXML
     private Text txt_error;
 
+    //Launch Edit Profile page
     @FXML
     void showEditProfile(ActionEvent event) throws IOException {
     	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("profileEdit.fxml"));
@@ -46,6 +48,7 @@ public class profileDeleteController implements Initializable{
     	window.show();
     }
 
+    //Launch Profile Selection Page
     @FXML
     void showProfileSelection(ActionEvent event) throws IOException {
 		txt_error.setText("Something went wrong");
@@ -69,6 +72,7 @@ public class profileDeleteController implements Initializable{
     	}
     }
 
+    //Verifies name with DB
     private boolean nameCheck(){
     	if(txt_profileName.getText().equals(name)) {
     		return true;
@@ -76,6 +80,7 @@ public class profileDeleteController implements Initializable{
     	return false;
     }
     
+    //Verifies PIN with DB ---ENCRYPT
     public boolean pinCheck() {
     	String inputPIN = txt_profilePIN.getText().toString();
     	int profileID = application.profileSelectionController.profileID;
@@ -87,6 +92,7 @@ public class profileDeleteController implements Initializable{
     	return false;
     }
     
+    //Delete Profile from Account in DB
     private void deleteInfo() {
     	int accountID = accounts.accountsLoginController.accountIDNum;
     	int profileID = application.profileLoginController.profileID;

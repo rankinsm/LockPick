@@ -18,6 +18,7 @@ public class accountHomeController {
     @FXML
     private Button btn_signIn;
 
+    //Open create account page
     @FXML
     void showCreateAccount(ActionEvent event) throws IOException {
     	Parent createProfileView = FXMLLoader.load(getClass().getResource("accountsCreate.fxml"));
@@ -28,6 +29,7 @@ public class accountHomeController {
     	window.show();
     }
 
+    //Open sign in page
     @FXML
     void showSignIn(ActionEvent event) throws IOException {
     	Parent accountLoginView = FXMLLoader.load(getClass().getResource("accountsLogin.fxml"));

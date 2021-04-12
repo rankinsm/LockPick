@@ -26,6 +26,7 @@ public class loginsAddController implements Initializable{
 
 	int profID = application.profileSelectionController.profileID;
 
+	//Form Elements
     @FXML
     private TextField txt_loginName;
 
@@ -89,6 +90,7 @@ public class loginsAddController implements Initializable{
     @FXML
     private Text txt_name7;
 
+    //Check for Share Setting, Insert Login to DB
     @FXML
     void addLoginInfo(ActionEvent event) {
     	int accountID = accounts.accountsLoginController.accountIDNum;
@@ -104,6 +106,7 @@ public class loginsAddController implements Initializable{
     	btn_addLogin.getScene().getWindow().hide();
     }
     
+    //Set default share status
     void setNotShared() {
     	isShared = 0;
     	prof0  = 0;
@@ -116,6 +119,7 @@ public class loginsAddController implements Initializable{
     	prof7  = 0;
     }
     
+    //Establish "Shared" selections
     void setIfShared() {
     	isShared = isTrue(cb_isShared.isSelected());
     	prof0  = isTrue(cb_shared0.isSelected());

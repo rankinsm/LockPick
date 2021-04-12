@@ -20,6 +20,7 @@ public class loginsHomeController implements Initializable {
 
 	public static String[] profileNames = new String[8];
 	
+	//Form Elements
     @FXML
     private Button btnBack;
 
@@ -77,6 +78,7 @@ public class loginsHomeController implements Initializable {
     @FXML
     private TableColumn<?, ?> clm_button;
     
+    //Launch Account Home Page
     @FXML
     void showAccountHome(ActionEvent event) throws IOException {
     	Parent accountsHomeView = FXMLLoader.load(getClass().getResource("../accounts/accountsHome.fxml"));
@@ -87,6 +89,7 @@ public class loginsHomeController implements Initializable {
     	window.show();
     }
 
+    //Launch Add Profile page
     @FXML
     void showLoginAdd(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("loginsAdd.fxml"));
@@ -104,6 +107,7 @@ public class loginsHomeController implements Initializable {
     	clm_profile0.setText("Dan");
     }
 
+    //Launch Login Home page
     @FXML
     void showLoginsHome(ActionEvent event) throws IOException {
     	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("loginsHome.fxml"));
@@ -114,6 +118,7 @@ public class loginsHomeController implements Initializable {
     	window.show();
     }
 
+    //Launch Profile Edit Page
     @FXML
     void showProfileEdit(ActionEvent event) throws IOException {
     	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../application/profileEdit.fxml"));
@@ -124,6 +129,7 @@ public class loginsHomeController implements Initializable {
     	window.show(); 
     }
 
+    //Launch Profile Selection page
     @FXML
     void showProfileSelection(ActionEvent event) throws IOException {
     	Parent selectProfileView = FXMLLoader.load(getClass().getResource("../application/profileSelection.fxml"));
@@ -134,6 +140,7 @@ public class loginsHomeController implements Initializable {
     	window.show();
     }
 
+    //Retrieve Profile Names from DB
     private void setNames() {
     	for(int i = 0; i < 8; i++) {
     		if(lpcon.MySQLCon.accountOrderedProfiles(accounts.accountsLoginController.accountIDNum)[i] != null) {
