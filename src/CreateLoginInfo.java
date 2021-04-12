@@ -1,5 +1,4 @@
 import java.util.Scanner ;
-
 /**
  * 
  */
@@ -12,7 +11,7 @@ import java.util.Scanner ;
  *
  *
  */
-public class CreateLoginInfo extends LoginInfo
+public class CreateLoginInfo
     {
     public static void main (String args[]) {
         Scanner s = new Scanner(System.in);
