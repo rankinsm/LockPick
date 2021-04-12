@@ -115,8 +115,13 @@ public class loginsHomeController implements Initializable {
 		}
 
     @FXML
-    void showLoginEdit(ActionEvent event) {
-    	clm_profile0.setText("Dan");
+    void showLoginEdit(ActionEvent event) throws IOException {
+    	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("loginsEdit.fxml"));
+    	Scene loginsHomeScene = new Scene(loginsHomeView);
+    	
+    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(loginsHomeScene);
+    	window.show();
     }
 
     @FXML
@@ -171,22 +176,30 @@ public class loginsHomeController implements Initializable {
 		clm_profile7.setText(profileNames[7]);
 		
 		switch(pID) {
-		case 0:
-			clm_profile0.setText("You");
-		case 1:
-			clm_profile1.setText("You");
-		case 2:
-			clm_profile2.setText("You");
-		case 3:
-			clm_profile3.setText("You");
-		case 4:
-			clm_profile4.setText("You");
-		case 5:
-			clm_profile5.setText("You");
-		case 6:
-			clm_profile6.setText("You");
-		case 7:
-			clm_profile7.setText("You");
+			case 0:
+				clm_profile0.setText("You");
+				break;
+			case 1:
+				clm_profile1.setText("You");
+				break;
+			case 2:
+				clm_profile2.setText("You");
+				break;
+			case 3:
+				clm_profile3.setText("You");
+				break;
+			case 4:
+				clm_profile4.setText("You");
+				break;
+			case 5:
+				clm_profile5.setText("You");
+				break;
+			case 6:
+				clm_profile6.setText("You");
+				break;
+			case 7:
+				clm_profile7.setText("You");
+				break;
 		}
     }
     
@@ -230,11 +243,11 @@ public class loginsHomeController implements Initializable {
 			Connection con;
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lockpick","root","rootPass");
 			Statement stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery("select * FROM tablelogins WHERE accountID = '"+aID+"' AND profileID = '"+pID+"' OR "+sharedProf+" = '1';");
+			ResultSet rs = stmt.executeQuery("select * FROM tablelogins WHERE accountID = '"+aID+"' AND profileID = '"+pID+"' OR "+sharedProf+" = 'Yes';");
 			while(rs.next()) {
 				oblist.add(new ModelTable(rs.getString("loginName"), rs.getString("loginUser"), rs.getString("loginPassword"), 
-						rs.getInt("isSharable"), rs.getInt("sharedProf0"), rs.getInt("sharedProf1"), rs.getInt("sharedProf2"),
-						rs.getInt("sharedProf3"), rs.getInt("sharedProf4"), rs.getInt("sharedProf5"), rs.getInt("sharedProf6"), rs.getInt("sharedProf7")));
+						rs.getString("isSharable"), rs.getString("sharedProf0"), rs.getString("sharedProf1"), rs.getString("sharedProf2"),
+						rs.getString("sharedProf3"), rs.getString("sharedProf4"), rs.getString("sharedProf5"), rs.getString("sharedProf6"), rs.getString("sharedProf7")));
 			}
 
 		} 

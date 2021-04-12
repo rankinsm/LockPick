@@ -12,15 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class loginsAddController implements Initializable{
-	int isShared;
-	int prof0;
-	int prof1;
-	int prof2;
-	int prof3;
-	int prof4;
-	int prof5;
-	int prof6;
-	int prof7;
+	String isShared;
+	String prof0, prof1, prof2, prof3, prof4, prof5, prof6, prof7;
 	static String[] names = new String[8];
 	String[] unloadedNames = new String[8];
 
@@ -105,15 +98,15 @@ public class loginsAddController implements Initializable{
     }
     
     void setNotShared() {
-    	isShared = 0;
-    	prof0  = 0;
-    	prof1  = 0;
-    	prof2  = 0;
-    	prof3  = 0;
-    	prof4  = 0;
-    	prof5  = 0;
-    	prof6  = 0;
-    	prof7  = 0;
+    	isShared = "No";
+    	prof0  = "NO";
+    	prof1  = "No";
+    	prof2  = "No";
+    	prof3  = "No";
+    	prof4  = "No";
+    	prof5  = "No";
+    	prof6  = "No";
+    	prof7  = "No";
     }
     
     void setIfShared() {
@@ -128,11 +121,11 @@ public class loginsAddController implements Initializable{
     	prof7  = isTrue(cb_shared7.isSelected());
     }
     
-    int isTrue(Boolean bool) {
+    String isTrue(Boolean bool) {
     	if(bool) {
-    		return 1;
+    		return "Yes";
     	}
-    	return 0;
+    	return "No";
     }
     
     private void getNames() {
