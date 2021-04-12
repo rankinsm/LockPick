@@ -25,6 +25,7 @@ public class accountsLoginController extends application.profileSelectionControl
 	public static boolean accountLoggedIn = false;
 	public static String accountEmail;
 	
+	//Form Elements
     @FXML
     private Button btn_accountCreateBack;
 
@@ -70,9 +71,10 @@ public class accountsLoginController extends application.profileSelectionControl
     	}
     }
     
+    //Checks for existing login
     public boolean loginVerified() {
     	String loginEmail = tb_loginEmail.getText().toString();
-    	String loginPass = tb_loginPassword.getText().toString();
+    	String loginPass = tb_loginPassword.getText().toString(); //--Encrypt Needed
     	if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
     		return true;
     	}

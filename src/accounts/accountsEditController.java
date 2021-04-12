@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 public class accountsEditController {
 
+	//Form Elements
     @FXML
     private Button btn_back;
 
@@ -92,9 +93,10 @@ public class accountsEditController {
     	}
     }
     
+    //Check if login exists in DB
     public boolean loginVerified() {
     	String loginEmail = accounts.accountsLoginController.accountEmail;
-    	String loginPass = txt_oldPassword.getText().toString();
+    	String loginPass = txt_oldPassword.getText().toString(); //Needs encrpyt/decryption to match DB
     	if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
     		return true;
     	}
@@ -102,6 +104,7 @@ public class accountsEditController {
     	return false;
     }
     
+    //Password Validation
     public boolean passwordIsValid (PasswordField pass) {
     	String e = pass.getText().toString();
         boolean result = false;
@@ -126,6 +129,7 @@ public class accountsEditController {
         return result;
     }
     
+    //Password Confirmation
     public boolean matchCheck(PasswordField tb_pass, PasswordField tb_passcheck) {
 		String pass1 = tb_pass.getText().toString();
 		String pass2 = tb_passcheck.getText().toString();
@@ -142,9 +146,10 @@ public class accountsEditController {
 		return false;
     }
     
+    //Insert updated password into the DB
     private void changePasswordInfo() {
     	int aID = accounts.accountsLoginController.accountIDNum;
-    	String password = txt_newPassword.getText().toString();
+    	String password = txt_newPassword.getText().toString(); //---Needs Encryption
     	String insert = "UPDATE tableaccount SET "
     			+ "accountPassword = '"+password+"' "
     			+ "WHERE accountID = '"+aID+"';";

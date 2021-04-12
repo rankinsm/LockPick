@@ -17,6 +17,7 @@ import lpcon.MySQLCon;
 
 public class accountsCreateController {
 
+	//Form Elements
     @FXML
     private Button btn_accountCreateBack;
 
@@ -44,6 +45,7 @@ public class accountsCreateController {
     @FXML
     private Text txt_passRequirements;
 
+    //Error Checking & Form Submission
     @FXML
     void showAccountLogin(ActionEvent event) throws IOException {
 		txt_emailNotValid.setText("");
@@ -52,7 +54,7 @@ public class accountsCreateController {
     	if(emailIsValid(tb_email.getText().toString()) && passwordIsValid(tb_accountPassword) && matchCheck(tb_accountPassword, tb_accountPasswordCheck) && fieldsFilled()){
     		Parent accountLoginView = FXMLLoader.load(getClass().getResource("accountsLogin.fxml"));
     		Scene accountLoginScene = new Scene(accountLoginView);
-    		inputAccountInfo();
+    		inputAccountInfo(); 										//Sends data to DB
     		System.out.println("Account Created");
     		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
     		window.setScene(accountLoginScene);
@@ -85,17 +87,19 @@ public class accountsCreateController {
     	window.show();
     }
     
+    //Retrieve and insert text box data to DB
     public void inputAccountInfo() {
-    	String fname = tb_fName.getText().toString();
-    	String lname = tb_lName.getText().toString();
-    	String email = tb_email.getText().toString();
-    	String pass = tb_accountPassword.getText().toString();
+    	String fname = tb_fName.getText().toString();	//First Name
+    	String lname = tb_lName.getText().toString();	//Last Name
+    	String email = tb_email.getText().toString();	//Email
+    	String pass = tb_accountPassword.getText().toString();	//---Account Password ---ENCRYPT
     	String insert = "insert into tableaccount "
     			+ "(accountFName, accountLName, accountEmail, accountPassword)"
     			+ " VALUES ('"+fname+"','"+lname+"','"+email+"','"+pass+"');";
     	lpcon.MySQLCon.sqlInsert(insert);
     }
     
+    //Empty Field Check
     public boolean fieldsFilled() {
     	if((tb_fName.getText().length() > 0) && (tb_lName.getText().length() > 0)) {
     		return true;
@@ -103,10 +107,12 @@ public class accountsCreateController {
 		return false;
     }
     
+    //Email Validation
     public boolean emailIsValid (String e) {
         return e.contains("@") &&( e.contains(".com") || e.contains(".org") || e.contains(".net") || e.contains(".edu"));
     }
     
+    //Password Validation
     public boolean passwordIsValid (PasswordField pass) {
     	String e = pass.getText().toString();
         boolean result = false;
@@ -131,6 +137,7 @@ public class accountsCreateController {
         return result;
     }
     
+    //Password Confirmation
     public boolean matchCheck(PasswordField tb_pass, PasswordField tb_passcheck) {
 		String pass1 = tb_pass.getText().toString();
 		String pass2 = tb_passcheck.getText().toString();

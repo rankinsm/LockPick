@@ -20,6 +20,7 @@ import accounts.accountsLoginController;
 public class profileLoginController extends profileCreateController{
 	private String txtPIN;
 
+	//Form Elements
     @FXML
     private Button btn_plBack;
 	
@@ -65,6 +66,7 @@ public class profileLoginController extends profileCreateController{
     @FXML
     private PasswordField tb_pPIN;
 
+    //Verifies PIN with DB
     public boolean checkPIN(PasswordField _PIN) {
     	String inputPIN = _PIN.getText().toString();
     	int profileID = application.profileSelectionController.profileID;
