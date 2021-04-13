@@ -21,6 +21,9 @@ public class loginsAddController implements Initializable{
 
 	//Form Elements
     @FXML
+    private Button btn_close;
+	
+    @FXML
     private TextField txt_loginName;
 
     @FXML
@@ -99,6 +102,11 @@ public class loginsAddController implements Initializable{
     	btn_addLogin.getScene().getWindow().hide();
     }
     
+    @FXML
+    void closeWindow(ActionEvent event) {
+    	btn_addLogin.getScene().getWindow().hide();
+    }
+    
     //Set default share status
     void setNotShared() {
     	isShared = "No";
@@ -124,6 +132,8 @@ public class loginsAddController implements Initializable{
     	prof6  = isTrue(cb_shared6.isSelected());
     	prof7  = isTrue(cb_shared7.isSelected());
     }
+    
+    
     
     String isTrue(Boolean bool) {
     	if(bool) {

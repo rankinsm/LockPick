@@ -115,7 +115,6 @@ public class loginsEditController implements Initializable{
     void deleteLogin(ActionEvent event) throws IOException {
     	txt_deleteError.setText("");
     	String lName = cmb_name.getValue();
-    	System.out.println(lName);
     	if(lName != null) {
         	deleteInfo(lName);
         	Parent loginProfileView = FXMLLoader.load(getClass().getResource("loginsHome.fxml"));

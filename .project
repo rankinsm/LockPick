@@ -14,6 +14,13 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>LPDefaultBackground.jpg</name>
+			<type>1</type>
+			<location>C:/Users/rankinsm/Documents/2021 Spring/Software Engineering/LockPick/LPDefaultBackground.jpg</location>
+		</link>
+	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1615853210062</id>

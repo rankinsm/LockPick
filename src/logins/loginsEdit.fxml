@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,219 +13,245 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.175" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logins.loginsEditController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../styles/LPDefaultStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logins.loginsEditController">
+   <children>
+    <AnchorPane layoutX="-319.0" layoutY="40.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="92.0">
          <children>
-            <Text layoutX="838.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Login">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
-            <Button fx:id="btn_back" layoutX="45.0" layoutY="54.0" mnemonicParsing="false" onAction="#showLoginsBack" prefHeight="75.0" prefWidth="150.0" text="Back">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_delete" layoutX="1678.0" layoutY="56.0" mnemonicParsing="false" onAction="#deleteLogin" prefHeight="75.0" prefWidth="200.0" text="Delete Login">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Text fx:id="txt_deleteError" fill="RED" layoutX="1400.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <Text fx:id="txt_deleteError" fill="RED" layoutX="1100.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-         <children>
-            <GridPane layoutX="629.0" layoutY="75.0" prefHeight="590.0" prefWidth="654.0">
-               <columnConstraints>
-                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-               </rowConstraints>
+          <AnchorPane layoutX="-58.0" layoutY="45.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login Name">
+                  <GridPane layoutX="629.0" layoutY="75.0" prefHeight="590.0" prefWidth="654.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Name">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="25.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Username / Email" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="25.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Password" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="25.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <TextField fx:id="txt_user" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="txt_pass" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <CheckBox fx:id="cb_isShared" mnemonicParsing="false" text="Share Login" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </CheckBox>
+                        <Button fx:id="btn_editLogin" mnemonicParsing="false" onAction="#editLogin" prefHeight="50.0" prefWidth="150.0" text="Edit Login" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="150.0" />
+                           </GridPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TextField fx:id="txt_newName" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login New Name" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="25.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <ComboBox fx:id="cmb_name" prefHeight="35.0" prefWidth="381.0" GridPane.columnIndex="1">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ComboBox>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="1350.0" layoutY="73.0" prefHeight="518.0" prefWidth="117.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <CheckBox fx:id="cb_shared0" mnemonicParsing="false" text="Share with" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared1" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared2" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared3" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared4" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared5" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared6" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cb_shared7" mnemonicParsing="false" text="Share with" textFill="WHITE" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="1470.0" layoutY="73.0" prefHeight="518.0" prefWidth="117.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Text fx:id="txt_name0" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name6" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_name7" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </GridPane>
+                  <Text fx:id="txt_editError" fill="RED" layoutX="850.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0">
                      <font>
                         <Font size="24.0" />
                      </font>
-                     <GridPane.margin>
-                        <Insets right="25.0" />
-                     </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login Username / Email" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets right="25.0" />
-                     </GridPane.margin>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login Password" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets right="25.0" />
-                     </GridPane.margin>
-                  </Text>
-                  <TextField fx:id="txt_user" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="txt_pass" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <CheckBox fx:id="cb_isShared" mnemonicParsing="false" text="Share Login" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets right="25.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-                  <Button fx:id="btn_editLogin" mnemonicParsing="false" onAction="#editLogin" prefHeight="50.0" prefWidth="150.0" text="Edit Login" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets left="150.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <TextField fx:id="txt_newName" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login New Name" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets right="25.0" />
-                     </GridPane.margin>
-                  </Text>
-                  <ComboBox fx:id="cmb_name" prefHeight="35.0" prefWidth="381.0" GridPane.columnIndex="1" />
                </children>
-            </GridPane>
-            <GridPane layoutX="1415.0" layoutY="73.0" prefHeight="518.0" prefWidth="117.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <CheckBox fx:id="cb_shared0" mnemonicParsing="false" text="Share with">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared1" mnemonicParsing="false" text="Share with" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared2" mnemonicParsing="false" text="Share with" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared3" mnemonicParsing="false" text="Share with" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared4" mnemonicParsing="false" text="Share with" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared5" mnemonicParsing="false" text="Share with" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared6" mnemonicParsing="false" text="Share with" GridPane.rowIndex="6">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="cb_shared7" mnemonicParsing="false" text="Share with" GridPane.rowIndex="7">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </GridPane>
-            <GridPane layoutX="1535.0" layoutY="73.0" prefHeight="518.0" prefWidth="117.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Text fx:id="txt_name0" strokeType="OUTSIDE" strokeWidth="0.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name1" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name2" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name3" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name4" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name5" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name6" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="6">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="txt_name7" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-               </children>
-            </GridPane>
-            <Text fx:id="txt_editError" fill="RED" layoutX="950.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children></AnchorPane>
-  </items>
-</SplitPane>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btn_delete" layoutX="1034.0" layoutY="33.0" mnemonicParsing="false" onAction="#deleteLogin" prefHeight="75.0" prefWidth="200.0" text="Delete Login">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btn_back" layoutX="33.0" layoutY="31.0" mnemonicParsing="false" onAction="#showLoginsBack" prefHeight="75.0" prefWidth="150.0" text="Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fill="WHITE" layoutX="501.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Login">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -119,12 +119,14 @@ public class loginsHomeController implements Initializable {
 
     @FXML
     void showLoginEdit(ActionEvent event) throws IOException {
-    	Parent loginsHomeView = FXMLLoader.load(getClass().getResource("loginsEdit.fxml"));
-    	Scene loginsHomeScene = new Scene(loginsHomeView);
-    	
-    	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-    	window.setScene(loginsHomeScene);
-    	window.show();
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("loginsEdit.fxml"));
+    	Parent root = (Parent) loader.load();
+    	loginsEditController controller = (loginsEditController) loader.getController();
+    	Scene scene = new Scene(root);
+    	Stage stage = new Stage();
+    	stage.setScene(scene);
+    	stage.setTitle("LockPick");
+    	stage.show();
     }
 
     //Launch Login Home page
