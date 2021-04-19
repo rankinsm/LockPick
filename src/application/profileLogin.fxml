@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../styles/LPDefaultStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileLoginController">
    <children>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -143,7 +142,7 @@
                   </Button>
                </children>
             </GridPane>
-            <Text fx:id="lb_pLoginCheck" layoutX="1143.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <Text fx:id="lb_pLoginCheck" fill="RED" layoutX="1143.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font size="36.0" />
                </font>

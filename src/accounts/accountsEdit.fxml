@@ -16,42 +16,6 @@
   <items>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/LPDefaultStyle.css">
          <children>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <Button fx:id="btn_back" layoutX="42.0" layoutY="60.0" mnemonicParsing="false" onAction="#showProfileSelection" prefHeight="75.0" prefWidth="150.0" text="Back">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
-                  <Text fill="WHITE" layoutX="757.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Account">
-                     <font>
-                        <Font size="72.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="btn_deleteProfile" layoutX="1524.0" layoutY="62.0" mnemonicParsing="false" onAction="#showDeleteProfile" prefHeight="75.0" prefWidth="150.0" text="Delete Profile">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btn_deleteAccount" layoutX="1723.0" layoutY="62.0" mnemonicParsing="false" onAction="#showDeleteAccount" prefHeight="75.0" prefWidth="150.0" text="Delete Account">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <Text fx:id="txt_errorM" fill="RED" layoutX="878.0" layoutY="300.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
             <GridPane layoutX="579.0" layoutY="322.0" prefHeight="430.0" prefWidth="687.0">
                <columnConstraints>
                   <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
@@ -121,6 +85,42 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="btn_back" layoutX="42.0" layoutY="60.0" mnemonicParsing="false" onAction="#showProfileSelection" prefHeight="75.0" prefWidth="150.0" text="Back">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Text fill="WHITE" layoutX="757.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Account">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btn_deleteProfile" layoutX="1524.0" layoutY="62.0" mnemonicParsing="false" onAction="#showDeleteProfile" prefHeight="75.0" prefWidth="150.0" text="Delete Profile">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_deleteAccount" layoutX="1723.0" layoutY="62.0" mnemonicParsing="false" onAction="#showDeleteAccount" prefHeight="75.0" prefWidth="150.0" text="Delete Account">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Text fx:id="txt_errorM" fill="RED" layoutX="878.0" layoutY="300.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
   </items>

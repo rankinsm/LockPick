@@ -252,7 +252,7 @@ public class loginsHomeController implements Initializable {
 			Connection con;
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lockpick","root","rootPass");
 			Statement stmt = con.createStatement(); 
-			ResultSet rs = stmt.executeQuery("select * FROM tablelogins WHERE accountID = '"+aID+"' AND profileID = '"+pID+"' OR "+sharedProf+" = 'Yes';");
+			ResultSet rs = stmt.executeQuery("select * FROM tablelogins WHERE accountID = '"+aID+"'( AND profileID = '"+pID+"' OR "+sharedProf+" = 'Yes');");
 			while(rs.next()) {
 				oblist.add(new ModelTable(rs.getString("loginName"), rs.getString("loginUser"), rs.getString("loginPassword"), 
 						rs.getString("isSharable"), rs.getString("sharedProf0"), rs.getString("sharedProf1"), rs.getString("sharedProf2"),
