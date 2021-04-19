@@ -87,11 +87,6 @@
             </Button>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="btn_back" layoutX="42.0" layoutY="60.0" mnemonicParsing="false" onAction="#showProfileSelection" prefHeight="75.0" prefWidth="150.0" text="Back">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
                   <Text fill="WHITE" layoutX="757.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Account">
                      <font>
                         <Font size="72.0" />
@@ -116,9 +111,17 @@
                         </Text>
                      </children>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </AnchorPane>
+                  <Button fx:id="btn_back" layoutX="42.0" layoutY="60.0" mnemonicParsing="false" onAction="#showProfileSelection" prefHeight="75.0" prefWidth="150.0" text="Back">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
