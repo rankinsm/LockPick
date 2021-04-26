@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileLoginController">
-   <items>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../styles/LPDefaultStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileLoginController">
+   <children>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Text layoutX="760.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Login" textAlignment="CENTER">
+            <Text fill="WHITE" layoutX="760.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Login" textAlignment="CENTER">
                <font>
                   <Font size="72.0" />
                </font>
@@ -23,10 +23,13 @@
                <font>
                   <Font size="24.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <AnchorPane layoutX="7.0" layoutY="149.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
             <GridPane alignment="CENTER" layoutX="659.0" layoutY="157.0" prefHeight="500.0" prefWidth="600.0">
                <columnConstraints>
@@ -44,69 +47,120 @@
                   <Button fx:id="btn_pLogin1" mnemonicParsing="false" onAction="#btn_input1" prefHeight="100.0" prefWidth="100.0" text="1">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin2" mnemonicParsing="false" onAction="#btn_input2" prefHeight="100.0" prefWidth="100.0" text="2" GridPane.columnIndex="1">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin3" mnemonicParsing="false" onAction="#btn_input3" prefHeight="100.0" prefWidth="100.0" text="3" GridPane.columnIndex="2">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin4" mnemonicParsing="false" onAction="#btn_input4" prefHeight="100.0" prefWidth="100.0" text="4" GridPane.rowIndex="1">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin5" mnemonicParsing="false" onAction="#btn_input5" prefHeight="100.0" prefWidth="100.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin6" mnemonicParsing="false" onAction="#btn_input6" prefHeight="100.0" prefWidth="100.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin7" mnemonicParsing="false" onAction="#btn_input7" prefHeight="100.0" prefWidth="100.0" text="7" GridPane.rowIndex="2">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin8" mnemonicParsing="false" onAction="#btn_input8" prefHeight="100.0" prefWidth="100.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin9" mnemonicParsing="false" onAction="#btn_input9" prefHeight="100.0" prefWidth="100.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLoginC" mnemonicParsing="false" onAction="#btn_C" prefHeight="100.0" prefWidth="100.0" text="C" GridPane.rowIndex="3">
                      <font>
                         <Font size="24.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLogin0" mnemonicParsing="false" onAction="#btn_input0" prefHeight="100.0" prefWidth="100.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="36.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btn_pLoginOK" mnemonicParsing="false" onAction="#btn_enter" prefHeight="100.0" prefWidth="100.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font size="24.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </GridPane>
-            <Text layoutX="785.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter PIN:">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Text>
-            <Text fx:id="lb_pLoginCheck" layoutX="1143.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <Text fx:id="lb_pLoginCheck" fill="RED" layoutX="1143.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <PasswordField fx:id="tb_pPIN" alignment="CENTER" layoutX="804.0" layoutY="685.0" prefHeight="75.0" prefWidth="300.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </PasswordField>
          </children>
       </AnchorPane>
-   </items>
-</SplitPane>
+      <PasswordField fx:id="tb_pPIN" alignment="CENTER" layoutX="810.0" layoutY="850.0" prefHeight="75.0" prefWidth="300.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </PasswordField>
+      <Text fill="WHITE" layoutX="778.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter PIN:">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

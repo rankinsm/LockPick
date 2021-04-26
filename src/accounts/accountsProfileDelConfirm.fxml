@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,23 +12,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.175" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accounts.accountsProfileDelConfirm">
-   <items>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../styles/LPDefaultStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accounts.accountsProfileDelConfirm">
+   <children>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Text layoutX="682.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Deletion Confirmation">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
             <Button fx:id="btn_back" layoutX="41.0" layoutY="57.0" mnemonicParsing="false" onAction="#showProfileDelSelection" prefHeight="75.0" prefWidth="150.0" text="Back">
                <font>
                   <Font size="24.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <AnchorPane layoutX="9.0" layoutY="166.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
             <GridPane layoutX="527.0" layoutY="218.0" prefHeight="318.0" prefWidth="777.0">
                <columnConstraints>
@@ -40,7 +39,7 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Email">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Email">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -48,7 +47,7 @@
                         <Insets right="25.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Password" GridPane.rowIndex="1">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Password" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="25.0" />
                      </GridPane.margin>
@@ -56,21 +55,32 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="txt_accountPassword" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="txt_accountEmail" prefHeight="40.0" GridPane.columnIndex="1" />
+                  <PasswordField fx:id="txt_accountPassword" prefHeight="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </PasswordField>
+                  <TextField fx:id="txt_accountEmail" prefHeight="40.0" GridPane.columnIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
                </children>
             </GridPane>
             <Button fx:id="btn_deleteProfile" layoutX="855.0" layoutY="629.0" mnemonicParsing="false" onAction="#deleteProfile" prefHeight="75.0" prefWidth="200.0" text="Delete Profile">
                <font>
                   <Font size="24.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="txt_errorM" fill="RED" layoutX="787.0" layoutY="575.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text layoutX="699.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in to confirm profile deletion. This cannot be undone">
+            <Text fill="WHITE" layoutX="699.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in to confirm profile deletion. This cannot be undone">
                <font>
                   <Font size="24.0" />
                </font>
@@ -84,7 +94,7 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Profile:" wrappingWidth="177.53832721710205">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Profile:" wrappingWidth="177.53832721710205">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -92,7 +102,7 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text fx:id="txt_profileName" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.41558170318604" GridPane.columnIndex="1">
+                  <Text fx:id="txt_profileName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.41558170318604" GridPane.columnIndex="1">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -109,5 +119,10 @@
             </Text>
          </children>
       </AnchorPane>
-   </items>
-</SplitPane>
+      <Text fill="WHITE" layoutX="568.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Deletion Confirmation">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

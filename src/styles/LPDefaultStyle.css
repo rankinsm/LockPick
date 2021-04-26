@@ -1,0 +1,23 @@
+.root {
+	-fx-background-color: black;
+	-fx-background-image:url(http://jmd.im/wp-content/uploads/2017/06/blackii_thumbnail.jpg) 
+}
+
+
+
+.text {
+	-fx-text-fill: white;
+}
+
+.button {
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-border-color: white;
+	-fx-border-width: 3px
+}
+
+.split-pane:horizontal > * > .split-pane-divider {
+   -fx-border-color: transparent -fx-box-border transparent #BBBBBB;
+   -fx-background-color: transparent, -fx-inner-border-horizontal;
+   -fx-background-insets: 0, 0 1 0 1;
+}
