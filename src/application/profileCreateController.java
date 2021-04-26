@@ -15,10 +15,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lpcon.MySQLCon;
+import accounts.accountsCreateController;
 import accounts.accountsLoginController;
 
 
-public class profileCreateController extends profileSelectionController{
+public class profileCreateController extends accountsCreateController {
 	public int newProfileID = getNewID();
 
 	@FXML
@@ -54,7 +55,7 @@ public class profileCreateController extends profileSelectionController{
     	return false;
     }    
     
-    public static boolean matchCheck(PasswordField tb_profilePIN, PasswordField tb_profilePINcheck) {
+    public static boolean matchCheckPIN(PasswordField tb_profilePIN, PasswordField tb_profilePINcheck) {
 		String pass1 = tb_profilePIN.getText().toString();
 		String pass2 = tb_profilePINcheck.getText().toString();
 		int check = 0;
@@ -70,8 +71,8 @@ public class profileCreateController extends profileSelectionController{
     	}  	
     
     @FXML
-    void createProfile(ActionEvent event) throws IOException {
-    	if(tb_profilePIN.getLength() == 6 && matchCheck(tb_profilePIN, tb_profilePINcheck) && charCheck(tb_profilePIN) && newProfileID != -1) {
+    void createProfile(ActionEvent event) throws Exception {
+    	if(tb_profilePIN.getLength() == 6 && matchCheckPIN(tb_profilePIN, tb_profilePINcheck) && charCheck(tb_profilePIN) && newProfileID != -1) {
         	inputProfileInfo(newProfileID);
         	accounts.accountsLoginController.localProfiles = accounts.accountsLoginController.loadProfiles();
 
@@ -122,11 +123,14 @@ public class profileCreateController extends profileSelectionController{
     
  
     
-    public void inputProfileInfo(int newProfileID) {
+    public void inputProfileInfo(int newProfileID) throws Exception {
     	int pID = newProfileID;
     	int aID = accounts.accountsLoginController.accountIDNum;
     	String name = tb_profileName.getText().toString();
     	String pass = tb_profilePIN.getText().toString();
+    	
+    	pass = encode(pass); //Encryption for DB Security
+    	
     	String insert = "insert into tableprofile "
     			+ "(accountID, profileID, profileName, profilePIN)"
     			+ " VALUES ('"+aID+"','"+pID+"','"+name+"','"+pass+"');";

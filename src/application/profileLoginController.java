@@ -13,11 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import logins.loginsAddController;
-import lpcon.MySQLCon;
-import accounts.accountsLoginController;
+import accounts.accountsCreateController;
 
-public class profileLoginController extends profileCreateController{
+public class profileLoginController extends accountsCreateController {
 	private String txtPIN;
 
 	//Form Elements
@@ -65,12 +63,16 @@ public class profileLoginController extends profileCreateController{
 
     @FXML
     private PasswordField tb_pPIN;
-
+    
+    public static int profileID = application.profileSelectionController.profileID;
+    public static int accountID = accounts.accountsLoginController.accountIDNum;
+    
     //Verifies PIN with DB
-    public boolean checkPIN(PasswordField _PIN) {
+    public boolean checkPIN(PasswordField _PIN) throws Exception {
     	String inputPIN = _PIN.getText().toString();
-    	int profileID = application.profileSelectionController.profileID;
-    	int accountID = accounts.accountsLoginController.accountIDNum;
+    	
+    	inputPIN = encode(inputPIN); //Encrypt to match DB
+    	
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
     	}
@@ -85,7 +87,7 @@ public class profileLoginController extends profileCreateController{
     }
 
     @FXML
-    void btn_enter(ActionEvent event) throws IOException {
+    void btn_enter(ActionEvent event) throws Exception {
     	if(checkPIN(tb_pPIN)) {
     		Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../logins/loginsHome.fxml"));
         	Scene loginsHomeScene = new Scene(loginsHomeView);

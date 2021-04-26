@@ -1,7 +1,6 @@
 package accounts;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class accountsEditController {
+public class accountsEditController extends accountsCreateController {
 
 	//Form Elements
     @FXML
@@ -69,7 +68,7 @@ public class accountsEditController {
     
 
     @FXML
-    void changePassword(ActionEvent event) throws IOException {
+    void changePassword(ActionEvent event) throws Exception {
     	txt_errorM.setText("");
     	if(loginVerified() && passwordIsValid(txt_newPassword) && matchCheck(txt_newPassword, txt_checkPassword)) {
     		changePasswordInfo();
@@ -94,9 +93,12 @@ public class accountsEditController {
     }
     
     //Check if login exists in DB
-    public boolean loginVerified() {
+    public boolean loginVerified() throws Exception {
     	String loginEmail = accounts.accountsLoginController.accountEmail;
-    	String loginPass = txt_oldPassword.getText().toString(); //Needs encrpyt/decryption to match DB
+    	String loginPass = txt_oldPassword.getText().toString(); 
+    	
+    	loginPass = encode(loginPass); //Encrypts to match DB
+    	
     	if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
     		return true;
     	}
@@ -147,9 +149,12 @@ public class accountsEditController {
     }
     
     //Insert updated password into the DB
-    private void changePasswordInfo() {
+    private void changePasswordInfo() throws Exception {
     	int aID = accounts.accountsLoginController.accountIDNum;
-    	String password = txt_newPassword.getText().toString(); //---Needs Encryption
+    	String password = txt_newPassword.getText().toString();
+    	
+    	password = encode(password); //Encrypts new password for DB
+    	
     	String insert = "UPDATE tableaccount SET "
     			+ "accountPassword = '"+password+"' "
     			+ "WHERE accountID = '"+aID+"';";

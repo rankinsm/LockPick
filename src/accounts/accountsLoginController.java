@@ -19,7 +19,7 @@ import java.util.concurrent.*;
 
 import application.*;
 
-public class accountsLoginController extends application.profileSelectionController {
+public class accountsLoginController extends accountsCreateController {
 	public static int accountIDNum = -1;
 	public static String[] localProfiles = new String[8];
 	public static boolean accountLoggedIn = false;
@@ -52,7 +52,7 @@ public class accountsLoginController extends application.profileSelectionControl
     }
 
     @FXML
-    void showProfiles(ActionEvent event) throws IOException {
+    void showProfiles(ActionEvent event) throws Exception {
 		txt_accountLoginError.setText("");
 		String email = tb_loginEmail.getText().toString();
     	if(loginVerified()) {
@@ -72,9 +72,12 @@ public class accountsLoginController extends application.profileSelectionControl
     }
     
     //Checks for existing login
-    public boolean loginVerified() {
+    public boolean loginVerified() throws Exception {
     	String loginEmail = tb_loginEmail.getText().toString();
     	String loginPass = tb_loginPassword.getText().toString(); //--Encrypt Needed
+    	
+    	loginPass = encode(loginPass); //Encrypts to match DB
+    	
     	if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
     		return true;
     	}

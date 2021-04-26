@@ -3,6 +3,7 @@ package logins;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import accounts.accountsCreateController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +12,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class loginsAddController implements Initializable{
+public class loginsAddController extends accountsCreateController implements Initializable{
 	int isShared;
 	int prof0;
 	int prof1;
@@ -92,12 +93,15 @@ public class loginsAddController implements Initializable{
 
     //Check for Share Setting, Insert Login to DB
     @FXML
-    void addLoginInfo(ActionEvent event) {
+    void addLoginInfo(ActionEvent event) throws Exception {
     	int accountID = accounts.accountsLoginController.accountIDNum;
     	int profileID = application.profileLoginController.profileID;
     	String name = txt_loginName.getText();
     	String user = txt_loginUser.getText();
     	String pass = txt_loginPass.getText();
+    	
+    	pass = encode(pass); //Encrypts for DB security
+    	
     	setNotShared();
     	setIfShared();
     	String query = "INSERT INTO tableLogins(accountID, profileID, loginName, loginUser, loginPassword, isSharable, sharedProf0, sharedProf1, sharedProf2, sharedProf3, sharedProf4, sharedProf5, sharedProf6, sharedProf7)"

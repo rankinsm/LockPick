@@ -1,5 +1,8 @@
 package accounts;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -14,8 +17,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lpcon.MySQLCon;
+import java.security.*;
+import java.security.cert.CertificateException;
 
-public class accountsCreateController {
+import javax.crypto.SecretKey;
+
+public class accountsCreateController extends EnKey {
 
 	//Form Elements
     @FXML
@@ -45,9 +52,52 @@ public class accountsCreateController {
     @FXML
     private Text txt_passRequirements;
 
+    //KeyStore & Key Creation + Storage
+    public KeyStore keyMake() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
+    	
+    	KeyStore keyStore = KeyStore.getInstance("JKS");
+    	
+    	char[] pass = null;
+    	String path = "C:/Program Files/Java/LockPick/Sec/key.jks";
+    	keyStore.load(null, pass);
+    	
+    	java.io.FileOutputStream output = new FileOutputStream(path);
+    	keyStore.store(output, pass);
+    	
+    	keyStore.load(new FileInputStream(path), pass);
+    	
+    	KeyStore.SecretKeyEntry secret = new KeyStore.SecretKeyEntry(EnKey.keygen());
+    	KeyStore.ProtectionParameter pParam = new KeyStore.PasswordProtection(pass);
+    	
+    	keyStore.setEntry("secretkey", secret, pParam);
+    	
+    	return keyStore;
+
+    }
+    
+    //SecretKey Retrieval from KeyStore
+    public SecretKey getKey(KeyStore keyStore) throws NoSuchAlgorithmException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException, KeyStoreException {
+    	
+    	String path = "C:/Program Files/Java/LockPick/Sec/key.jks";
+    	char[] pass = null;
+    	
+    	keyStore.load(new FileInputStream(path), pass);
+    	SecretKey key = (SecretKey) keyStore.getKey("secretkey", pass);
+    	return key;
+    }
+    
+    //Universal Encryption Method
+    public String encode(String string) throws Exception {
+    	
+    	SecretKey secret = getKey(keyMake());
+    	String Enc = encrypt(string, secret);		//Encrypt to match DB
+    	
+    	return Enc;
+    }
+    
     //Error Checking & Form Submission
     @FXML
-    void showAccountLogin(ActionEvent event) throws IOException {
+    void showAccountLogin(ActionEvent event) throws Exception {
 		txt_emailNotValid.setText("");
 		txt_passRequirements.setText("");
 
@@ -88,16 +138,21 @@ public class accountsCreateController {
     }
     
     //Retrieve and insert text box data to DB
-    public void inputAccountInfo() {
+    public void inputAccountInfo() throws Exception {
     	String fname = tb_fName.getText().toString();	//First Name
     	String lname = tb_lName.getText().toString();	//Last Name
     	String email = tb_email.getText().toString();	//Email
-    	String pass = tb_accountPassword.getText().toString();	//---Account Password ---ENCRYPT
+    	String pass = tb_accountPassword.getText().toString();
+    	
+    	pass = encode(pass); //Encrypts Password
+    	
     	String insert = "insert into tableaccount "
     			+ "(accountFName, accountLName, accountEmail, accountPassword)"
     			+ " VALUES ('"+fname+"','"+lname+"','"+email+"','"+pass+"');";
     	lpcon.MySQLCon.sqlInsert(insert);
     }
+    
+
     
     //Empty Field Check
     public boolean fieldsFilled() {
