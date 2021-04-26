@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class accountsProfileDelConfirm implements Initializable{
+public class accountsProfileDelConfirm extends accountsCreateController implements Initializable{
 
     @FXML
     private Button btn_back;
@@ -41,7 +41,7 @@ public class accountsProfileDelConfirm implements Initializable{
     private Text txt_errorM1;
 
     @FXML
-    void deleteProfile(ActionEvent event) throws IOException {
+    void deleteProfile(ActionEvent event) throws Exception {
     	if(checkEmail() && checkPassword()) {
     		deleteInfo();
         	Parent accountHomeView = FXMLLoader.load(getClass().getResource("accountsEdit.fxml"));
@@ -81,9 +81,12 @@ public class accountsProfileDelConfirm implements Initializable{
     	return false;
     }
     
-    private boolean checkPassword() {
+    private boolean checkPassword() throws Exception {
        	String loginEmail = accounts.accountsLoginController.accountEmail;
        	String loginPass = txt_accountPassword.getText().toString();
+       	
+       	loginPass = encode(loginPass);
+       	
         if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
         	return true;
         }

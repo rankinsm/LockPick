@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import accounts.accountsCreateController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class profileEditController implements Initializable {
+public class profileEditController extends accountsCreateController implements Initializable {
 	public static String pName;
 
 	//Form Elements
@@ -47,11 +48,11 @@ public class profileEditController implements Initializable {
 
     //Update Profile Information in DB
     @FXML
-    void saveChanges(ActionEvent event) throws IOException {
+    void saveChanges(ActionEvent event) throws Exception {
     	txt_errorMessage.setText("");
     	if(nameChange() && txt_newPIN.getLength() != 0) {
-        	if(txt_newPIN.getLength() == 6 && matchCheck(txt_newPIN, txt_checkPIN) && charCheck(txt_newPIN) && checkPIN(txt_oldPIN)) {
-            	updateProfileNameAndPass(); //Updates Profile --ENCRYPT
+        	if(txt_newPIN.getLength() == 6 && matchCheckPIN(txt_newPIN, txt_checkPIN) && charCheck(txt_newPIN) && checkPIN(txt_oldPIN)) {
+            	updateProfileNameAndPass(); //Updates Profile
         		Parent loginsHomeView = FXMLLoader.load(getClass().getResource("../logins/loginsHome.fxml"));
             	Scene loginsHomeScene = new Scene(loginsHomeView);
             	
@@ -139,7 +140,7 @@ public class profileEditController implements Initializable {
     }
     
     //PIN Confirmation
-    public static boolean matchCheck(PasswordField tb_profilePIN, PasswordField tb_profilePINcheck) {
+    public static boolean matchCheckPIN(PasswordField tb_profilePIN, PasswordField tb_profilePINcheck) {
 		String pass1 = tb_profilePIN.getText().toString();
 		String pass2 = tb_profilePINcheck.getText().toString();
 		int check = 0;
@@ -171,10 +172,13 @@ public class profileEditController implements Initializable {
     }
     
     //Verify PIN with DB
-    public boolean checkPIN(PasswordField _PIN) {
+    public boolean checkPIN(PasswordField _PIN) throws Exception {
     	String inputPIN = _PIN.getText().toString();
     	int profileID = application.profileSelectionController.profileID;
     	int accountID = accounts.accountsLoginController.accountIDNum;
+    	
+    	inputPIN = encode(inputPIN); //Encrypts to match DB
+    	
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
     	}
@@ -202,10 +206,13 @@ public class profileEditController implements Initializable {
     }
     
     //Updates Profile (PIN) in DB
-    public void updateProfilePass() {
+    public void updateProfilePass() throws Exception {
     	int pID = application.profileLoginController.profileID;
     	int aID = accounts.accountsLoginController.accountIDNum;
-    	String pass = txt_newPIN.getText().toString(); //PIN setter ---ENCRYPT
+    	String pass = txt_newPIN.getText().toString(); //PIN setter
+    	
+    	pass = encode(pass); //Encrypts to match DB
+    	
     	String insert = "UPDATE tableprofile SET "
     			+ "profilePIN = '"+pass+"' "
     			+ "WHERE accountID = '"+aID+"' AND profileID = '"+pID+"';";
@@ -213,11 +220,14 @@ public class profileEditController implements Initializable {
     }
     
     //Updates Profile (User+PIN) in DB
-    public void updateProfileNameAndPass() {
+    public void updateProfileNameAndPass() throws Exception {
     	int pID = application.profileLoginController.profileID;
     	int aID = accounts.accountsLoginController.accountIDNum;
     	String name = txt_profileName.getText().toString();
-    	String pass = txt_newPIN.getText().toString(); //PIN setter ---ENCRYPT
+    	String pass = txt_newPIN.getText().toString(); //PIN setter
+    	
+    	pass = encode(pass); //Encrypts to match DB
+    	
     	String insert = "UPDATE tableprofile SET "
     			+ "profileName = '"+name+"', profilePIN = '"+pass+"' "
     			+ "WHERE accountID = '"+aID+"' AND profileID = '"+pID+"';";

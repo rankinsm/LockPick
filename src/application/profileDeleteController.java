@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import accounts.accountsCreateController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class profileDeleteController implements Initializable{
+public class profileDeleteController extends accountsCreateController implements Initializable{
 	
 	String name = application.profileEditController.pName;
 
@@ -50,7 +51,7 @@ public class profileDeleteController implements Initializable{
 
     //Launch Profile Selection Page
     @FXML
-    void showProfileSelection(ActionEvent event) throws IOException {
+    void showProfileSelection(ActionEvent event) throws Exception {
 		txt_error.setText("Something went wrong");
     	if(nameCheck() && pinCheck()) {
     		deleteInfo();
@@ -81,10 +82,13 @@ public class profileDeleteController implements Initializable{
     }
     
     //Verifies PIN with DB ---ENCRYPT
-    public boolean pinCheck() {
+    public boolean pinCheck() throws Exception {
     	String inputPIN = txt_profilePIN.getText().toString();
     	int profileID = application.profileSelectionController.profileID;
     	int accountID = accounts.accountsLoginController.accountIDNum;
+    	
+    	inputPIN = encode(inputPIN); //Encrypt to match with DB
+    	
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
     	}

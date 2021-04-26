@@ -1,7 +1,6 @@
 package accounts;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class accountsDeleteController {
+public class accountsDeleteController extends accountsCreateController {
 
     @FXML
     private Button btn_back;
@@ -32,7 +31,7 @@ public class accountsDeleteController {
     private Text txt_errorM;
 
     @FXML
-    void deleteAccount(ActionEvent event) throws IOException {
+    void deleteAccount(ActionEvent event) throws Exception {
     	if(checkEmail() && checkPassword()) {
     		deleteInfo();
         	Parent accountHomeView = FXMLLoader.load(getClass().getResource("accountsHome.fxml"));
@@ -72,9 +71,12 @@ public class accountsDeleteController {
     	return false;
     }
     
-    private boolean checkPassword() {
+    private boolean checkPassword() throws Exception {
        	String loginEmail = accounts.accountsLoginController.accountEmail;
        	String loginPass = txt_accountPassword.getText().toString();
+       	
+       	loginPass = encode(loginPass);  //encrypts to match DB entry
+       	
         if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
         	return true;
         }
