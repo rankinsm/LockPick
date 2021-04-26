@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import accounts.accountsCreateController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,10 +22,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class loginsHomeController implements Initializable {
+public class loginsHomeController extends accountsCreateController implements Initializable {
 
 	public static String[] profileNames = new String[8];
 	private int aID = accounts.accountsLoginController.accountIDNum;
@@ -254,10 +254,10 @@ public class loginsHomeController implements Initializable {
 			Statement stmt = con.createStatement(); 
 			ResultSet rs = stmt.executeQuery("select * FROM tablelogins WHERE accountID = '"+aID+"'( AND profileID = '"+pID+"' OR "+sharedProf+" = 'Yes');");
 			while(rs.next()) {
-				oblist.add(new ModelTable(rs.getString("loginName"), rs.getString("loginUser"), rs.getString("loginPassword"), 
+				oblist.add(new ModelTable(rs.getString("loginName"), rs.getString("loginUser"), decode(rs.getString("loginPassword")), 
 						rs.getString("isSharable"), rs.getString("sharedProf0"), rs.getString("sharedProf1"), rs.getString("sharedProf2"),
 						rs.getString("sharedProf3"), rs.getString("sharedProf4"), rs.getString("sharedProf5"), rs.getString("sharedProf6"), rs.getString("sharedProf7")));
-			}
+			} //Decodes password entries
 
 		} 
 		catch (Exception e) {

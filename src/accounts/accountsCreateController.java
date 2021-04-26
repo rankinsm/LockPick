@@ -76,23 +76,33 @@ public class accountsCreateController extends EnKey {
     }
     
     //SecretKey Retrieval from KeyStore
-    public SecretKey getKey(KeyStore keyStore) throws NoSuchAlgorithmException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException, KeyStoreException {
+    public SecretKey getKey() throws NoSuchAlgorithmException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException, KeyStoreException {
     	
     	String path = "C:/Program Files/Java/LockPick/Sec/key.jks";
     	char[] pass = null;
     	
-    	keyStore.load(new FileInputStream(path), pass);
-    	SecretKey key = (SecretKey) keyStore.getKey("secretkey", pass);
+    	KeyStore ks = KeyStore.getInstance("JKS");
+    	ks.load(new FileInputStream(path), pass);
+    	SecretKey key = (SecretKey) ks.getKey("secretkey", pass);
     	return key;
     }
     
     //Universal Encryption Method
     public String encode(String string) throws Exception {
     	
-    	SecretKey secret = getKey(keyMake());
-    	String Enc = encrypt(string, secret);		//Encrypt to match DB
+    	SecretKey secret = getKey();
+    	String January = encrypt(string, secret);		//Encrypt to match DB
     	
-    	return Enc;
+    	return January;
+    }
+    
+    //Universal Decryption Method
+    public String decode(String string) throws Exception {
+    	
+    	SecretKey secret = getKey();
+    	String December = decrypt(string, secret);		//Decrypt for Human Viewing
+    	
+    	return December;
     }
     
     //Error Checking & Form Submission
