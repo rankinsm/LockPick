@@ -12,7 +12,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class loginsAddController extends accountsCreateControllerimplements Initializable{
+public class loginsAddController extends accountsCreateController implements Initializable {
+	
 	String isShared;
 	String prof0, prof1, prof2, prof3, prof4, prof5, prof6, prof7;
 

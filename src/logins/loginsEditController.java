@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import accounts.accountsCreateController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class loginsEditController implements Initializable{
+public class loginsEditController extends accountsCreateController implements Initializable{
 	private int aID = accounts.accountsLoginController.accountIDNum;
 	private int pID = application.profileLoginController.profileID;
 	static String[] names = new String[8];
@@ -130,7 +131,7 @@ public class loginsEditController implements Initializable{
     }
 
     @FXML
-    void editLogin(ActionEvent event) throws IOException {
+    void editLogin(ActionEvent event) throws Exception {
     	txt_editError.setText("");
     	if(cmb_name.getValue() != null) {
     		if(txt_user.getLength() != 0) {
@@ -192,9 +193,12 @@ public class loginsEditController implements Initializable{
     	lpcon.MySQLCon.sqlInsert(updateUser);	
     }
     
-    private void changePass(String loginName, String newPass) {
+    private void changePass(String loginName, String newPass) throws Exception {
     	int accountID = accounts.accountsLoginController.accountIDNum;
     	int profileID = application.profileLoginController.profileID;
+    	
+    	newPass = encode(newPass); //Encrypt for DB security
+    	
     	String updateUser = "UPDATE tablelogins SET "
     			+ "loginPassword = '"+newPass+"' "
     			+  "WHERE accountID ='"+accountID+"' AND profileID ='"+profileID+"' AND loginName = '"+loginName+"';";

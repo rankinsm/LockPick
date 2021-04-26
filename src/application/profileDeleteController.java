@@ -81,7 +81,7 @@ public class profileDeleteController extends accountsCreateController implements
     	return false;
     }
     
-    //Verifies PIN with DB ---ENCRYPT
+    //Verifies PIN with DB
     public boolean pinCheck() throws Exception {
     	String inputPIN = txt_profilePIN.getText().toString();
     	int profileID = application.profileSelectionController.profileID;

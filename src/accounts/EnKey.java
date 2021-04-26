@@ -33,6 +33,7 @@ public class EnKey {
 	        byte[] encTB = cipher.doFinal(plainTB);
 	        Base64.Encoder enc = Base64.getEncoder();
 	        String encT = enc.encodeToString(encTB);
+	        
 	        return encT;
 	    }
 
@@ -43,6 +44,7 @@ public class EnKey {
 	        cipher.init(Cipher.DECRYPT_MODE, secret);
 	        byte[] decTB = cipher.doFinal(encTB);
 	        String decT = new String(decTB);
+	        
 	        return decT;
 	    }
 	    

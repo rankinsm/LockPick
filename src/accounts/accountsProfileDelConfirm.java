@@ -85,7 +85,7 @@ public class accountsProfileDelConfirm extends accountsCreateController implemen
        	String loginEmail = accounts.accountsLoginController.accountEmail;
        	String loginPass = txt_accountPassword.getText().toString();
        	
-       	loginPass = encode(loginPass);
+       	loginPass = encode(loginPass); //Encrypt to match DB
        	
         if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
         	return true;
