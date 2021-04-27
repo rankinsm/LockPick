@@ -254,7 +254,7 @@ public class loginsHomeController extends accountsCreateController implements In
 			Statement stmt = con.createStatement(); 
 			ResultSet rs = stmt.executeQuery("select * FROM tablelogins WHERE accountID = '"+aID+"'( AND profileID = '"+pID+"' OR "+sharedProf+" = 'Yes');");
 			while(rs.next()) {
-				oblist.add(new ModelTable(rs.getString("loginName"), rs.getString("loginUser"), decode(rs.getString("loginPassword")), 
+				oblist.add(new ModelTable(rs.getString("loginName"), rs.getString("loginUser"), /*decode(*/rs.getString("loginPassword")/*)*/, 
 						rs.getString("isSharable"), rs.getString("sharedProf0"), rs.getString("sharedProf1"), rs.getString("sharedProf2"),
 						rs.getString("sharedProf3"), rs.getString("sharedProf4"), rs.getString("sharedProf5"), rs.getString("sharedProf6"), rs.getString("sharedProf7")));
 			} //Decodes password entries

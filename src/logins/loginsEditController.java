@@ -197,7 +197,7 @@ public class loginsEditController extends accountsCreateController implements In
     	int accountID = accounts.accountsLoginController.accountIDNum;
     	int profileID = application.profileLoginController.profileID;
     	
-    	newPass = encode(newPass); //Encrypt for DB security
+    	//newPass = encode(newPass); //Encrypt for DB security
     	
     	String updateUser = "UPDATE tablelogins SET "
     			+ "loginPassword = '"+newPass+"' "

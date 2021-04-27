@@ -71,7 +71,7 @@ public class profileLoginController extends accountsCreateController {
     public boolean checkPIN(PasswordField _PIN) throws Exception {
     	String inputPIN = _PIN.getText().toString();
     	
-    	inputPIN = encode(inputPIN); //Encrypt to match DB
+    	//inputPIN = encode(inputPIN); //Encrypt to match DB
     	
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
