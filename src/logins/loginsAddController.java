@@ -98,7 +98,7 @@ public class loginsAddController extends accountsCreateController implements Ini
     	String user = txt_loginUser.getText();
     	String pass = txt_loginPass.getText();
     	
-    	pass = encode(pass); //Encrypts for DB security
+    	//pass = encode(pass); //Encrypts for DB security
     	
     	setNotShared();
     	setIfShared();

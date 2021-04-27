@@ -129,7 +129,7 @@ public class profileCreateController extends accountsCreateController {
     	String name = tb_profileName.getText().toString();
     	String pass = tb_profilePIN.getText().toString();
     	
-    	pass = encode(pass); //Encryption for DB Security
+    	//pass = encode(pass); //Encryption for DB Security
     	
     	String insert = "insert into tableprofile "
     			+ "(accountID, profileID, profileName, profilePIN)"

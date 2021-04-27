@@ -1,5 +1,6 @@
 package accounts;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -51,59 +52,60 @@ public class accountsCreateController extends EnKey {
 
     @FXML
     private Text txt_passRequirements;
+  //KeyStore & Key Creation + Storage
+    //public KeyStore keyMake() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
+    	
+    	//KeyStore keyStore = KeyStore.getInstance("JCEKS");
+    	
+    	//char[] pass = null;
+    	//String path = "C:\\Program Files\\Sec\\key.jceks";
+    	//File file = new File(path);
+    	//if (!file.exists())
+    		//keyStore.load(null, null);
+    	
+    	//java.io.FileOutputStream output = new FileOutputStream(file);
+    	//keyStore.store(output, pass);
+    	
+    	//keyStore.load(new FileInputStream(file), pass);
+    	
+    	//KeyStore.SecretKeyEntry secret = new KeyStore.SecretKeyEntry(EnKey.keygen());
+    	//KeyStore.ProtectionParameter pParam = new KeyStore.PasswordProtection(pass);
+    	
+    	//keyStore.setEntry("secretkey", secret, pParam);
+    	
+    	//return keyStore;
 
-    //KeyStore & Key Creation + Storage
-    public KeyStore keyMake() throws KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
-    	
-    	KeyStore keyStore = KeyStore.getInstance("JKS");
-    	
-    	char[] pass = null;
-    	String path = "C:/Program Files/Java/LockPick/Sec/key.jks";
-    	keyStore.load(null, pass);
-    	
-    	java.io.FileOutputStream output = new FileOutputStream(path);
-    	keyStore.store(output, pass);
-    	
-    	keyStore.load(new FileInputStream(path), pass);
-    	
-    	KeyStore.SecretKeyEntry secret = new KeyStore.SecretKeyEntry(EnKey.keygen());
-    	KeyStore.ProtectionParameter pParam = new KeyStore.PasswordProtection(pass);
-    	
-    	keyStore.setEntry("secretkey", secret, pParam);
-    	
-    	return keyStore;
-
-    }
+    //}
     
     //SecretKey Retrieval from KeyStore
-    public SecretKey getKey() throws NoSuchAlgorithmException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException, KeyStoreException {
+    //public static SecretKey getKey() throws NoSuchAlgorithmException, CertificateException, FileNotFoundException, IOException, UnrecoverableKeyException, KeyStoreException {
     	
-    	String path = "C:/Program Files/Java/LockPick/Sec/key.jks";
-    	char[] pass = null;
+    	//String path = "C:\\Program Files\\Sec\\key.jceks";
+    	//char[] pass = null;
     	
-    	KeyStore ks = KeyStore.getInstance("JKS");
-    	ks.load(new FileInputStream(path), pass);
-    	SecretKey key = (SecretKey) ks.getKey("secretkey", pass);
-    	return key;
-    }
+    	//KeyStore ks = KeyStore.getInstance("JCEKS");
+    	//ks.load(new FileInputStream(path), pass);
+    	//SecretKey key = (SecretKey) ks.getKey("secretkey", pass);
+    	//return key;
+    //}
     
     //Universal Encryption Method
-    public String encode(String string) throws Exception {
+    //public static String encode(String string) throws Exception {
     	
-    	SecretKey secret = getKey();
-    	String January = encrypt(string, secret);		//Encrypt to match DB
+    	//SecretKey secret = getKey();
+    	//String January = encrypt(string, secret);		//Encrypt to match DB
     	
-    	return January;
-    }
+    	//return January;
+    //}
     
     //Universal Decryption Method
-    public String decode(String string) throws Exception {
+    //public String decode(String string) throws Exception {
     	
-    	SecretKey secret = getKey();
-    	String December = decrypt(string, secret);		//Decrypt for Human Viewing
+    	//SecretKey secret = getKey();
+    	//String December = decrypt(string, secret);		//Decrypt for Human Viewing
     	
-    	return December;
-    }
+    	//return December;
+    //}
     
     //Error Checking & Form Submission
     @FXML
@@ -154,7 +156,7 @@ public class accountsCreateController extends EnKey {
     	String email = tb_email.getText().toString();	//Email
     	String pass = tb_accountPassword.getText().toString();
     	
-    	pass = encode(pass); //Encrypts Password
+    	//pass = encode(pass); //Encrypts Password
     	
     	String insert = "insert into tableaccount "
     			+ "(accountFName, accountLName, accountEmail, accountPassword)"

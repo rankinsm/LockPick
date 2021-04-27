@@ -177,7 +177,7 @@ public class profileEditController extends accountsCreateController implements I
     	int profileID = application.profileSelectionController.profileID;
     	int accountID = accounts.accountsLoginController.accountIDNum;
     	
-    	inputPIN = encode(inputPIN); //Encrypts to match DB
+    	//inputPIN = encode(inputPIN); //Encrypts to match DB
     	
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;
@@ -211,7 +211,7 @@ public class profileEditController extends accountsCreateController implements I
     	int aID = accounts.accountsLoginController.accountIDNum;
     	String pass = txt_newPIN.getText().toString(); //PIN setter
     	
-    	pass = encode(pass); //Encrypts to match DB
+    	//pass = encode(pass); //Encrypts to match DB
     	
     	String insert = "UPDATE tableprofile SET "
     			+ "profilePIN = '"+pass+"' "
@@ -226,7 +226,7 @@ public class profileEditController extends accountsCreateController implements I
     	String name = txt_profileName.getText().toString();
     	String pass = txt_newPIN.getText().toString(); //PIN setter
     	
-    	pass = encode(pass); //Encrypts to match DB
+    	//pass = encode(pass); //Encrypts to match DB
     	
     	String insert = "UPDATE tableprofile SET "
     			+ "profileName = '"+name+"', profilePIN = '"+pass+"' "

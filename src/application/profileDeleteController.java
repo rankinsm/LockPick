@@ -87,7 +87,7 @@ public class profileDeleteController extends accountsCreateController implements
     	int profileID = application.profileSelectionController.profileID;
     	int accountID = accounts.accountsLoginController.accountIDNum;
     	
-    	inputPIN = encode(inputPIN); //Encrypt to match with DB
+    	//inputPIN = encode(inputPIN); //Encrypt to match with DB
     	
     	if(lpcon.MySQLCon.verifyProfile(accountID, profileID, inputPIN)) {
     		return true;

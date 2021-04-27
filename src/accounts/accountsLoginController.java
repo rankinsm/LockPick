@@ -76,7 +76,7 @@ public class accountsLoginController extends accountsCreateController {
     	String loginEmail = tb_loginEmail.getText().toString();
     	String loginPass = tb_loginPassword.getText().toString(); //--Encrypt Needed
     	
-    	loginPass = encode(loginPass); //Encrypts to match DB
+    	//loginPass = encode(loginPass); //Encrypts to match DB
     	
     	if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
     		return true;

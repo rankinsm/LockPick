@@ -75,7 +75,7 @@ public class accountsDeleteController extends accountsCreateController {
        	String loginEmail = accounts.accountsLoginController.accountEmail;
        	String loginPass = txt_accountPassword.getText().toString();
        	
-       	loginPass = encode(loginPass);  //encrypts to match DB entry
+       	//loginPass = encode(loginPass);  //encrypts to match DB entry
        	
         if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
         	return true;

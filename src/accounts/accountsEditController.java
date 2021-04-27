@@ -97,7 +97,7 @@ public class accountsEditController extends accountsCreateController {
     	String loginEmail = accounts.accountsLoginController.accountEmail;
     	String loginPass = txt_oldPassword.getText().toString(); 
     	
-    	loginPass = encode(loginPass); //Encrypts to match DB
+    	//loginPass = encode(loginPass); //Encrypts to match DB
     	
     	if(lpcon.MySQLCon.verifyAccount(loginEmail, loginPass)) {
     		return true;
@@ -153,7 +153,7 @@ public class accountsEditController extends accountsCreateController {
     	int aID = accounts.accountsLoginController.accountIDNum;
     	String password = txt_newPassword.getText().toString();
     	
-    	password = encode(password); //Encrypts new password for DB
+    	//password = encode(password); //Encrypts new password for DB
     	
     	String insert = "UPDATE tableaccount SET "
     			+ "accountPassword = '"+password+"' "
